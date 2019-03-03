@@ -103,25 +103,27 @@
 
 
 
-  <meta name="description" content="hello world">
-<meta name="keywords" content="blog">
+  <meta name="description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样 比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径， 在struts中可以通过以下方法来获取运行项目">
+<meta name="keywords" content="相对路径,Javaweb路径,strust路径">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试">
-<meta property="og:url" content="http://yoursite.com/测试/index.html">
+<meta property="og:title" content="struts获取相对路径的方法">
+<meta property="og:url" content="http://yoursite.com/struts1和struts2获取相对路径的方法/index.html">
 <meta property="og:site_name" content="cacacai">
-<meta property="og:description" content="hello world">
+<meta property="og:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样 比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径， 在struts中可以通过以下方法来获取运行项目">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T16:20:07.276Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-9.png">
+<meta property="og:updated_time" content="2019-03-03T08:53:12.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试">
-<meta name="twitter:description" content="hello world">
+<meta name="twitter:title" content="struts获取相对路径的方法">
+<meta name="twitter:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样 比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径， 在struts中可以通过以下方法来获取运行项目">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-9.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/测试/">
+  <link rel="canonical" href="http://yoursite.com/struts1和struts2获取相对路径的方法/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>测试 | cacacai</title>
+  <title>struts获取相对路径的方法 | cacacai</title>
   
 
 
@@ -324,7 +326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/测试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/struts1和struts2获取相对路径的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cacacai">
@@ -341,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">测试
+          <h1 class="post-title" itemprop="name headline">struts获取相对路径的方法
 
               
             
@@ -367,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2019-03-03 00:19:50 / 修改时间：00:20:07" itemprop="dateCreated datePublished" datetime="2019-03-03T00:19:50+08:00">2019-03-03</time>
+              <time title="创建时间：2019-03-03 16:06:00 / 修改时间：16:53:12" itemprop="dateCreated datePublished" datetime="2019-03-03T16:06:00+08:00">2019-03-03</time>
             
 
             
@@ -389,8 +391,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/测试/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/测试/" itemprop="commentCount"></span>
+                <a href="/struts1和struts2获取相对路径的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/struts1和struts2获取相对路径的方法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -446,7 +448,11 @@
       
 
       
-        <h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1>
+        <p>在Java web项目结构如下图情况下</p>
+<p><img src="/images/pasted-9.png" alt="upload successful"><br>在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样</p>
+<p>比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；<br>但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径，</p>
+<p>在struts中可以通过以下方法来获取运行项目的绝对路径，在需要生成文件的时候直接使用绝对路径来屏蔽不同的运行状态影响去相对的获取。<br>比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">Struts1 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =</span><br><span class="line"></span><br><span class="line">   this.getServlet().getServletContext().getRealPath(&quot;/&quot;) ;</span><br><span class="line"></span><br><span class="line">Struts2 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =new File(ServletActionContext.getServletContext().getRealPath(&quot;/&quot;);</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -467,6 +473,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/相对路径/" rel="tag"># 相对路径</a>
+          
+            <a href="/tags/Javaweb路径/" rel="tag"># Javaweb路径</a>
+          
+            <a href="/tags/strust路径/" rel="tag"># strust路径</a>
+          
+        </div>
+      
 
       
       
@@ -476,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/phylosvg-学习/" rel="next" title="jsphylosvg 学习">
-                <i class="fa fa-chevron-left"></i> jsphylosvg 学习
+              <a href="/测试/" rel="next" title="测试">
+                <i class="fa fa-chevron-left"></i> 测试
               </a>
             
           </div>
@@ -485,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/struts1和struts2获取相对路径的方法/" rel="prev" title="struts获取相对路径的方法">
-                struts获取相对路径的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,17 +549,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -576,23 +579,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hello-world"><span class="nav-number">1.</span> <span class="nav-text">hello world</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

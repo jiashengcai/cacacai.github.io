@@ -324,6 +324,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/struts1和struts2获取相对路径的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cacacai">
+      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cacacai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/struts1和struts2获取相对路径的方法/" class="post-title-link" itemprop="url">struts获取相对路径的方法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-03 16:06:00 / 修改时间：16:53:12" itemprop="dateCreated datePublished" datetime="2019-03-03T16:06:00+08:00">2019-03-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/struts1和struts2获取相对路径的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/struts1和struts2获取相对路径的方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Java web项目结构如下图情况下</p>
+<p><img src="/images/pasted-9.png" alt="upload successful"><br>在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样</p>
+<p>比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；<br>但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径，</p>
+<p>在struts中可以通过以下方法来获取运行项目的绝对路径，在需要生成文件的时候直接使用绝对路径来屏蔽不同的运行状态影响去相对的获取。<br>比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">Struts1 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =</span><br><span class="line"></span><br><span class="line">   this.getServlet().getServletContext().getRealPath(&quot;/&quot;) ;</span><br><span class="line"></span><br><span class="line">Struts2 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =new File(ServletActionContext.getServletContext().getRealPath(&quot;/&quot;);</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
