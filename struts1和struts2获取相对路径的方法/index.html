@@ -112,7 +112,7 @@
 <meta property="og:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样 比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径， 在struts中可以通过以下方法来获取运行项目">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/pasted-9.png">
-<meta property="og:updated_time" content="2019-03-03T08:53:12.827Z">
+<meta property="og:updated_time" content="2019-03-03T08:58:54.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="struts获取相对路径的方法">
 <meta name="twitter:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样 比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径， 在struts中可以通过以下方法来获取运行项目">
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2019-03-03 16:06:00 / 修改时间：16:53:12" itemprop="dateCreated datePublished" datetime="2019-03-03T16:06:00+08:00">2019-03-03</time>
+              <time title="创建时间：2019-03-03 16:06:00 / 修改时间：16:58:54" itemprop="dateCreated datePublished" datetime="2019-03-03T16:06:00+08:00">2019-03-03</time>
             
 
             
@@ -451,7 +451,12 @@
         <p>在Java web项目结构如下图情况下</p>
 <p><img src="/images/pasted-9.png" alt="upload successful"><br>在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样</p>
 <p>比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；<br>但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径，</p>
-<p>在struts中可以通过以下方法来获取运行项目的绝对路径，在需要生成文件的时候直接使用绝对路径来屏蔽不同的运行状态影响去相对的获取。<br>比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">Struts1 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =</span><br><span class="line"></span><br><span class="line">   this.getServlet().getServletContext().getRealPath(&quot;/&quot;) ;</span><br><span class="line"></span><br><span class="line">Struts2 获取相对路径的方法：</span><br><span class="line"></span><br><span class="line">String upload_filepath =new File(ServletActionContext.getServletContext().getRealPath(&quot;/&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>在struts中可以通过以下方法来获取运行项目的绝对路径，在需要生成文件的时候直接使用绝对路径来屏蔽不同的运行状态影响去相对的获取。<br>比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>Struts1 获取相对路径的方法：</p>
+<p>String upload_filepath =</p>
+<p>   this.getServlet().getServletContext().getRealPath(“/“) ;</p>
+<p>Struts2 获取相对路径的方法：</p>
+<p>String upload_filepath =new File(ServletActionContext.getServletContext().getRealPath(“/“);<br><code>`</code></p>
 
       
     </div>
