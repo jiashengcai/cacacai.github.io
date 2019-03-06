@@ -103,27 +103,31 @@
 
 
 
-  <meta name="description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样">
-<meta name="keywords" content="相对路径,Javaweb路径,strust路径">
+  <meta name="description" content="newick 数据格式newick数据格式说明https://en.wikipedia.org/wiki/Newick_format样子大概如下12345678(,,(,));                               no nodes are named(A,B,(C,D));                           leaf nodes are named(A,B">
+<meta name="keywords" content="blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="struts获取相对路径的方法">
-<meta property="og:url" content="http://yoursite.com/struts1和struts2获取相对路径的方法/index.html">
+<meta property="og:title" content="newick 转phxml数据格式">
+<meta property="og:url" content="http://yoursite.com/newick-转phxml数据格式/index.html">
 <meta property="og:site_name" content="cacacai">
-<meta property="og:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样">
+<meta property="og:description" content="newick 数据格式newick数据格式说明https://en.wikipedia.org/wiki/Newick_format样子大概如下12345678(,,(,));                               no nodes are named(A,B,(C,D));                           leaf nodes are named(A,B">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/pasted-9.png">
-<meta property="og:updated_time" content="2019-03-03T11:56:44.101Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-11.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-13.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-14.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-15.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-16.png">
+<meta property="og:updated_time" content="2019-03-06T07:15:07.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="struts获取相对路径的方法">
-<meta name="twitter:description" content="在Java web项目结构如下图情况下 在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-9.png">
+<meta name="twitter:title" content="newick 转phxml数据格式">
+<meta name="twitter:description" content="newick 数据格式newick数据格式说明https://en.wikipedia.org/wiki/Newick_format样子大概如下12345678(,,(,));                               no nodes are named(A,B,(C,D));                           leaf nodes are named(A,B">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-11.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/struts1和struts2获取相对路径的方法/">
+  <link rel="canonical" href="http://yoursite.com/newick-转phxml数据格式/">
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>struts获取相对路径的方法 | cacacai</title>
+  <title>newick 转phxml数据格式 | cacacai</title>
   
 
 
@@ -326,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/struts1和struts2获取相对路径的方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/newick-转phxml数据格式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cacacai">
@@ -343,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">struts获取相对路径的方法
+          <h1 class="post-title" itemprop="name headline">newick 转phxml数据格式
 
               
             
@@ -369,7 +373,7 @@
                 
               
 
-              <time title="创建时间：2019-03-03 16:06:00 / 修改时间：19:56:44" itemprop="dateCreated datePublished" datetime="2019-03-03T16:06:00+08:00">2019-03-03</time>
+              <time title="创建时间：2019-03-06 14:16:57 / 修改时间：15:15:07" itemprop="dateCreated datePublished" datetime="2019-03-06T14:16:57+08:00">2019-03-06</time>
             
 
             
@@ -391,8 +395,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/struts1和struts2获取相对路径的方法/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/struts1和struts2获取相对路径的方法/" itemprop="commentCount"></span>
+                <a href="/newick-转phxml数据格式/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/newick-转phxml数据格式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,14 +452,24 @@
       
 
       
-        <p>在Java web项目结构如下图情况下</p>
-<p><img src="/images/pasted-9.png" alt="upload successful"><br>在src的java文件中需要在Webcontent中生成一些下载类型文件时候，在不同运行状态下的路径都不一样<br><a id="more"></a><br>比如在测试单元运行时候获取到的是当前项目的实际路径比如F:\workspace\bastionhub；<br>但是在debug或者在打包成war在真实服务器中运行的时候，获取到的路径是运行时tomcat的路径，</p>
-<p>在struts中可以通过以下方法来获取运行项目的绝对路径，在需要生成文件的时候直接使用绝对路径来屏蔽不同的运行状态影响去相对的获取。<br>比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>Struts1 获取相对路径的方法：</p>
-<p>String upload_filepath =</p>
-<p>   this.getServlet().getServletContext().getRealPath(“/“) ;</p>
-<p>Struts2 获取相对路径的方法：</p>
-<p>String upload_filepath =new File(ServletActionContext.getServletContext().getRealPath(“/“);<br><code>`</code></p>
+        <h1 id="newick-数据格式"><a href="#newick-数据格式" class="headerlink" title="newick 数据格式"></a>newick 数据格式</h1><p>newick数据格式说明<a href="https://en.wikipedia.org/wiki/Newick_format" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Newick_format</a><br>样子大概如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(,,(,));                               no nodes are named</span><br><span class="line">(A,B,(C,D));                           leaf nodes are named</span><br><span class="line">(A,B,(C,D)E)F;                         all nodes are named</span><br><span class="line">(:0.1,:0.2,(:0.3,:0.4):0.5);           all but root node have a distance to parent</span><br><span class="line">(:0.1,:0.2,(:0.3,:0.4):0.5):0.0;       all have a distance to parent</span><br><span class="line">(A:0.1,B:0.2,(C:0.3,D:0.4):0.5);       distances and leaf names (popular)</span><br><span class="line">(A:0.1,B:0.2,(C:0.3,D:0.4)E:0.5)F;     distances and all names</span><br><span class="line">((B:0.2,(C:0.3,D:0.4)E:0.5)A:0.1)F;    a tree rooted on a leaf node (rare)</span><br></pre></td></tr></table></figure></p>
+<p>转换为图的形状如下</p>
+<p><img src="/images/pasted-11.png" alt="upload successful"></p>
+<h1 id="phyloxml数据格式"><a href="#phyloxml数据格式" class="headerlink" title="phyloxml数据格式"></a>phyloxml数据格式</h1><p>这是一种xml数据，相比较于newick数据格，更多的意义在于比newick可以保存更多更丰富的信息，扩展功能等，而newick只能保存名称还有分支的长度。说明地址<a href="http://www.phyloxml.org/" target="_blank" rel="noopener">http://www.phyloxml.org/</a></p>
+<p>简单数据例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&lt;phyloxml xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd&quot; xmlns=&quot;http://www.phyloxml.org&quot;&gt;</span><br><span class="line">&lt;phylogeny rooted=&quot;false&quot;&gt;</span><br><span class="line">  &lt;render&gt;</span><br><span class="line">    &lt;parameters&gt;</span><br><span class="line">		&lt;circular&gt;</span><br><span class="line">			&lt;bufferRadius&gt;0.4&lt;/bufferRadius&gt;</span><br><span class="line">		&lt;/circular&gt;</span><br><span class="line">	&lt;/parameters&gt;</span><br><span class="line">	&lt;charts&gt;</span><br><span class="line">		&lt;component type=&quot;binary&quot; thickness=&quot;10&quot; /&gt;</span><br><span class="line">	&lt;/charts&gt;</span><br><span class="line">	&lt;styles&gt;</span><br><span class="line">		&lt;caffeine fill=&apos;#A93&apos; stroke=&apos;#DDD&apos; /&gt;</span><br><span class="line">		&lt;base fill=&apos;#8b7100&apos; stroke=&apos;#DDD&apos; /&gt;</span><br><span class="line">		&lt;other fill=&apos;#333&apos; stroke=&apos;#DDD&apos; /&gt;</span><br><span class="line">	&lt;/styles&gt;	</span><br><span class="line">  &lt;/render&gt;</span><br><span class="line">  &lt;clade&gt;</span><br><span class="line">    &lt;clade&gt;</span><br><span class="line">      &lt;name&gt;Americano&lt;/name&gt;</span><br><span class="line">      &lt;branch_length&gt;10.0&lt;/branch_length&gt;</span><br><span class="line">	  &lt;annotation&gt;</span><br><span class="line">		&lt;desc&gt;Espresso and water&lt;/desc&gt;</span><br><span class="line">		&lt;uri&gt;http://en.wikipedia.org/wiki/Americano&lt;/uri&gt;</span><br><span class="line">	  &lt;/annotation&gt;		  </span><br><span class="line">	  &lt;chart&gt;</span><br><span class="line">		&lt;component&gt;caffeine&lt;/component&gt;</span><br><span class="line">	  &lt;/chart&gt;	  </span><br><span class="line">    &lt;/clade&gt;</span><br><span class="line">    &lt;clade&gt;</span><br><span class="line">      &lt;name&gt;Water&lt;/name&gt;</span><br><span class="line">      &lt;branch_length&gt;20.0&lt;/branch_length&gt;</span><br><span class="line">	  &lt;annotation&gt;</span><br><span class="line">		&lt;desc&gt;Solvent of Life&lt;/desc&gt;</span><br><span class="line">		&lt;uri&gt;http://en.wikipedia.org/wiki/Water&lt;/uri&gt;</span><br><span class="line">	  &lt;/annotation&gt;		  </span><br><span class="line">	  &lt;chart&gt;</span><br><span class="line">		&lt;component&gt;other&lt;/component&gt;</span><br><span class="line">	  &lt;/chart&gt;	  </span><br><span class="line">    &lt;/clade&gt;</span><br><span class="line">  &lt;/clade&gt;</span><br><span class="line">&lt;/phylogeny&gt;</span><br><span class="line">&lt;/phyloxml&gt;</span><br></pre></td></tr></table></figure>
+<p>在借助第三方的js库下可以定义出更美的图形</p>
+<p><img src="/images/pasted-13.png" alt="upload successful"></p>
+<h1 id="使用脚本转换"><a href="#使用脚本转换" class="headerlink" title="使用脚本转换"></a>使用脚本转换</h1><p><a href="http://yangl.net/2015/07/23/newick2phyloxml/" target="_blank" rel="noopener">http://yangl.net/2015/07/23/newick2phyloxml/</a> 在这个博客中提供了两种方式，我用的是第一种，它里面详细写了两种脚本的方式，但是看不懂。。。。</p>
+<h1 id="forester"><a href="#forester" class="headerlink" title="forester"></a>forester</h1><p>这是一个开源项目，使用的是Java，它是一个独立的软件，也是一个可以直接调用的jar包，<a href="https://github.com/cmzmasek/forester。" target="_blank" rel="noopener">https://github.com/cmzmasek/forester。</a></p>
+<p>它还有一个非常优秀的基因数据展示js库<a href="https://github.com/cmzmasek/archaeopteryx-js，可以直接在网页上以编辑器图形界面方式展示newick,phyloxml格式数据。" target="_blank" rel="noopener">https://github.com/cmzmasek/archaeopteryx-js，可以直接在网页上以编辑器图形界面方式展示newick,phyloxml格式数据。</a></p>
+<p>回到forester.jar 下载地址<a href="https://github.com/cmzmasek/forester/blob/master/forester/java/forester.jar?raw=true" target="_blank" rel="noopener">https://github.com/cmzmasek/forester/blob/master/forester/java/forester.jar?raw=true</a></p>
+<p>可以在电脑配置了Java环境下直接双击打开的jar包就可以运行，查看它强大的功能</p>
+<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p>也可以直接在项目中添加该jar作为依赖,截图展示了从newick转phyloxml数据过程，</p>
+<p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p>archaeopteryx-js展示数据</p>
+<p><img src="/images/pasted-16.png" alt="upload successful"></p>
 
       
     </div>
@@ -477,16 +491,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/相对路径/" rel="tag"># 相对路径</a>
-          
-            <a href="/tags/Javaweb路径/" rel="tag"># Javaweb路径</a>
-          
-            <a href="/tags/strust路径/" rel="tag"># strust路径</a>
-          
-        </div>
-      
 
       
       
@@ -496,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/phylosvg-学习/" rel="next" title="jsphylosvg 学习">
-                <i class="fa fa-chevron-left"></i> jsphylosvg 学习
+              <a href="/struts1和struts2获取相对路径的方法/" rel="next" title="struts获取相对路径的方法">
+                <i class="fa fa-chevron-left"></i> struts获取相对路径的方法
               </a>
             
           </div>
@@ -506,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/newick-转phxml数据格式/" rel="prev" title="newick 转phxml数据格式">
-                newick 转phxml数据格式 <i class="fa fa-chevron-right"></i>
+              <a href="/安装配置环境/" rel="prev" title="安装配置环境">
+                安装配置环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -587,6 +600,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#newick-数据格式"><span class="nav-number">1.</span> <span class="nav-text">newick 数据格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#phyloxml数据格式"><span class="nav-number">2.</span> <span class="nav-text">phyloxml数据格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用脚本转换"><span class="nav-number">3.</span> <span class="nav-text">使用脚本转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#forester"><span class="nav-number">4.</span> <span class="nav-text">forester</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
