@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":"10f"},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Cytoscape.js是一个用于分析和可视化的图论库。这涵盖了从网络生物学到社交网络分析的各种用途。主要是描述点和线之间的关系官方网站http://js.cytoscape.org/官方教程http://js.cytoscape.org/#core/initialisationGitHub托管项目https://github.com/cytoscape/cytoscape.js/">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cytoscape.js学习">
+<meta property="og:url" content="http://yoursite.com/post/100502c1.html">
+<meta property="og:site_name" content="cacacai">
+<meta property="og:description" content="Cytoscape.js是一个用于分析和可视化的图论库。这涵盖了从网络生物学到社交网络分析的各种用途。主要是描述点和线之间的关系官方网站http://js.cytoscape.org/官方教程http://js.cytoscape.org/#core/initialisationGitHub托管项目https://github.com/cytoscape/cytoscape.js/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-28T15:22:26.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cytoscape.js学习">
+<meta name="twitter:description" content="Cytoscape.js是一个用于分析和可视化的图论库。这涵盖了从网络生物学到社交网络分析的各种用途。主要是描述点和线之间的关系官方网站http://js.cytoscape.org/官方教程http://js.cytoscape.org/#core/initialisationGitHub托管项目https://github.com/cytoscape/cytoscape.js/">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/post/100502c1.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>cytoscape.js学习 | cacacai</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cacacai</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/100502c1.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cacacai"/>
+      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cacacai"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">cytoscape.js学习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-21 18:01:43" itemprop="dateCreated datePublished" datetime="2019-01-21T18:01:43+08:00">2019-01-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-28 23:22:26" itemprop="dateModified" datetime="2019-02-28T23:22:26+08:00">2019-02-28</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/post/100502c1.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/100502c1.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Cytoscape.js是一个用于分析和可视化的图论库。这涵盖了从网络生物学到社交网络分析的各种用途。<br>主要是描述点和线之间的关系<br>官方网站<a href="http://js.cytoscape.org/" target="_blank" rel="noopener">http://js.cytoscape.org/</a><br>官方教程<a href="http://js.cytoscape.org/#core/initialisation" target="_blank" rel="noopener">http://js.cytoscape.org/#core/initialisation</a><br>GitHub托管项目<a href="https://github.com/cytoscape/cytoscape.js/" target="_blank" rel="noopener">https://github.com/cytoscape/cytoscape.js/</a><br><a id="more"></a></p>
+<h1 id="获取cytoscape-js"><a href="#获取cytoscape-js" class="headerlink" title="获取cytoscape.js"></a>获取cytoscape.js</h1><ul>
+<li><p>cytoscape在github <a href="https://github.com/cytoscape/cytoscape.js/" target="_blank" rel="noopener">https://github.com/cytoscape/cytoscape.js/</a> 上下载最新的 release 版本，解压出来的文件夹里的 dist 目录里可以找到最新版本的 echarts 库。<br>cytoscape.min.js：一个缩小的UMD版本，其中包含所有依赖项。该文件适用于小页面，例如学术论文的补充材料。<br>cytoscape.umd.js：包含所有依赖项的非缩小UMD构建。此文件对于小页面上的调试很有用，例如学术论文的补充材料。<br>cytoscape.cjs.js：一个没有任何捆绑依赖关系的非缩小CJS（Node.js）构建。这可以由Node.js或像Webpack这样的捆绑器通过require（’cytoscape’）自动使用。<br>cytoscape.esm.js：没有任何捆绑依赖项的非缩小ESM（导入/导出）构建。这可以由Node.js或像Webpack这样的捆绑器通过’cytoscape’导入cytoscape自动使用。</p>
+</li>
+<li><p>cdn引入 <a href="https://cdnjs.com/libraries/cytoscape" target="_blank" rel="noopener">cdnjs</a></p>
+</li>
+<li>通过 npm 获取 cytoscape，npm install cytoscape</li>
+</ul>
+<p><a href="http://js.cytoscape.org/#getting-started/including-cytoscape.js" target="_blank" rel="noopener">更多的引入方式</a></p>
+<h1 id="引入cytoscape"><a href="#引入cytoscape" class="headerlink" title="引入cytoscape"></a>引入cytoscape</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;!-- 引入 cytoscape 文件 --&gt;</span><br><span class="line">    &lt;script src=&quot;cytoscape.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>建议使用cytoscape.min.js版本其他版本有点问题</p>
+</blockquote>
+<h1 id="绘制一个简单的图形"><a href="#绘制一个简单的图形" class="headerlink" title="绘制一个简单的图形"></a>绘制一个简单的图形</h1><p>在绘图前我们需要为 cytoscape 准备一个具备高宽的 DOM 容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- 为 cytoscape 准备一个具备大小（宽高）的 DOM --&gt;</span><br><span class="line">    &lt;div id=&quot;cy&quot; &gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>请注意，Cytoscape.js在初始化时使用HTML DOM元素容器的尺寸进行布局和渲染。因此，在任何Cytoscape.js相关代码之前将CSS样式表放在<head><meta name="generator" content="Hexo 3.8.0">中是非常重要的。否则，可能偶尔会错误地报告尺寸，从而导致不希望的行为。</head></p>
+</blockquote>
+<p>这是官方提示，DOM的样式定义需要在head标签内避免发生问题</p>
+<p>然后就可以通过cytoscape 方法创建一个 图像实例，下面是完整代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Tutorial 1: Getting Started&lt;/title&gt;</span><br><span class="line">    &lt;script src=&apos;cytoscape.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #cy &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0px;</span><br><span class="line">            left: 0px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;cy&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var cy = cytoscape(&#123;</span><br><span class="line">            container: document.getElementById(&apos;cy&apos;), // container to render in</span><br><span class="line"></span><br><span class="line">            elements: [ // list of graph elements to start with</span><br><span class="line">                &#123; // node a</span><br><span class="line">                    data: &#123; id: &apos;a&apos; &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123; // node b</span><br><span class="line">                    data: &#123; id: &apos;b&apos; &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123; // edge ab</span><br><span class="line">                    data: &#123; id: &apos;ab&apos;, source: &apos;a&apos;, target: &apos;b&apos; &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            style: [ // the stylesheet for the graph</span><br><span class="line">                &#123;</span><br><span class="line">                    selector: &apos;node&apos;,</span><br><span class="line">                    style: &#123;</span><br><span class="line">                        &apos;background-color&apos;: &apos;#0f0&apos;,</span><br><span class="line">                        &apos;label&apos;: &apos;data(id)&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">                &#123;</span><br><span class="line">                    selector: &apos;edge&apos;,</span><br><span class="line">                    style: &#123;</span><br><span class="line">                        &apos;width&apos;: 3,</span><br><span class="line">                        &apos;line-color&apos;: &apos;#f00&apos;,</span><br><span class="line">                        &apos;target-arrow-color&apos;: &apos;#00f&apos;,</span><br><span class="line">                        &apos;target-arrow-shape&apos;: &apos;triangle&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            layout: &#123;</span><br><span class="line">                name: &apos;grid&apos;,</span><br><span class="line">                rows: 1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样第一个图形就ok了</p>
+<h1 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h1><p>Cytoscape.js的一个实例有许多可以在初始化时设置的选项。<br>下面概述了它们的默认值。</p>
+<blockquote>
+<p>请注意，一切都是可选的。默认情况下，您将获得带有默认样式表的空图。为方便起见，浏览器外部的环境（例如Node.js）会自动设置为无头。(机器翻译)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var cy = cytoscape(&#123;</span><br><span class="line">  // very commonly used options</span><br><span class="line">  container: undefined,</span><br><span class="line">  elements: [ /* ... */ ],</span><br><span class="line">  style: [ /* ... */ ],</span><br><span class="line">  layout: &#123; name: &apos;grid&apos; /* , ... */ &#125;,</span><br><span class="line"></span><br><span class="line">  // initial viewport state:</span><br><span class="line">  zoom: 1,</span><br><span class="line">  pan: &#123; x: 0, y: 0 &#125;,</span><br><span class="line"></span><br><span class="line">  // interaction options:</span><br><span class="line">  minZoom: 1e-50,</span><br><span class="line">  maxZoom: 1e50,</span><br><span class="line">  zoomingEnabled: true,</span><br><span class="line">  userZoomingEnabled: true,</span><br><span class="line">  panningEnabled: true,</span><br><span class="line">  userPanningEnabled: true,</span><br><span class="line">  boxSelectionEnabled: false,</span><br><span class="line">  selectionType: &apos;single&apos;,</span><br><span class="line">  touchTapThreshold: 8,</span><br><span class="line">  desktopTapThreshold: 4,</span><br><span class="line">  autolock: false,</span><br><span class="line">  autoungrabify: false,</span><br><span class="line">  autounselectify: false,</span><br><span class="line"></span><br><span class="line">  // rendering options:</span><br><span class="line">  headless: false,</span><br><span class="line">  styleEnabled: true,</span><br><span class="line">  hideEdgesOnViewport: false,</span><br><span class="line">  hideLabelsOnViewport: false,</span><br><span class="line">  textureOnViewport: false,</span><br><span class="line">  motionBlur: false,</span><br><span class="line">  motionBlurOpacity: 0.2,</span><br><span class="line">  wheelSensitivity: 1,</span><br><span class="line">  pixelRatio: &apos;auto&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h2><ul>
+<li>container：应在其中呈现图形的HTML DOM元素。如果Cytoscape.js无头地运行，则未指定。容器预计是一个空的div;可视化拥有div。</li>
+<li>elements：指定为普通对象的元素数组。为方便起见，也可以将此选项指定为解析为JSON元素的promise。</li>
+<li>style：用于设置图形样式的样式表。为方便起见，也可以将此选项指定为解析为样式表的promise。</li>
+<li>layout：指定布局选项的普通对象。最初运行的布局由name字段指定。有关其支持的选项，请参阅布局文档。如果要在元素JSON中指定自己的节点位置，则可以使用预设布局 - 默认情况下，它不会设置任何位置，使节点处于当前位置（即在初始化时的options.elements中指定）。</li>
+</ul>
+<h2 id="初始化视图"><a href="#初始化视图" class="headerlink" title="初始化视图"></a>初始化视图</h2><ul>
+<li>zoom：图形的初始缩放级别。确保在布局中禁用视口操作选项（如fit），以便在应用布局时不会覆盖它。您可以设置options.minZoom和options.maxZoom以设置缩放级别的限制。</li>
+<li>pan：图形的初始平移位置。确保在布局中禁用视口操作选项（如fit），以便在应用布局时不会覆盖它。</li>
+</ul>
+<h2 id="交互参数"><a href="#交互参数" class="headerlink" title="交互参数"></a>交互参数</h2><ul>
+<li>minZoom：图表缩放级别的最小界限。视口的缩放比例不能小于此缩放级别。</li>
+<li>maxZoom：图表缩放级别的最大界限。视口的缩放比例不能大于此缩放级别。</li>
+<li>zoomingEnabled：是否通过用户事件和编程方式启用缩放图形。</li>
+<li>userZoomingEnabled：是否允许用户事件（例如鼠标滚轮，捏合缩放）缩放图形。对此缩放的编程更改不受此选项的影响。</li>
+<li>panningEnabled：是否通过用户事件和编程方式启用平移图形。</li>
+<li>userPanningEnabled：是否允许用户事件（例如拖动图形背景）平移图形。平移的程序化更改不受此选项的影响。</li>
+<li>boxSelectionEnabled：是否启用了框选择（即，拖动框叠加，并将其释放为选择）。如果启用，则用户必须点击以平移图表。</li>
+<li>selectionType：一个字符串，指示用户输入的选择行为。对于“添加”，用户进行的新选择会添加到当前所选元素的集合中。对于“单个”，用户做出的新选择成为当前所选元素的整个集合（即，未选择先前的元素）。</li>
+<li>touchTapThreshold＆desktopTapThreshold：一个非负整数，分别表示用户在点击手势，触摸设备和桌面设备上可以移动的最大允许距离。这使得用户更容易点击。这些值具有合理的默认值，因此建议不要更改这些选项，除非您有充分的理由这样做。大的价值几乎肯定会产生不良后果。</li>
+<li>autoungrabify：默认情况下节点是否应该不被授权（用户无法抓取）（如果为true，则覆盖单个节点状态）。</li>
+<li>autolock：默认情况下是否应锁定节点（根本不可拖动）（如果为true，则覆盖单个节点状态）。</li>
+<li><p>autounselectify：默认情况下节点是否应该是不可分割的（不可变选择状态）（如果为true，则覆盖单个元素状态）。</p>
+<h2 id="渲染参数"><a href="#渲染参数" class="headerlink" title="渲染参数"></a>渲染参数</h2></li>
+<li><p>headless：一种便利选项，可以将实例初始化为无头运行。您不需要在隐式无头的环境中设置它（例如Node.js）。但是，设置无头是很方便的：如果你想在浏览器中使用无头实例，则为true。</p>
+</li>
+<li>styleEnabled：一个布尔值，指示是否应使用样式。对于无头（即在浏览器之外）环境，不需要显示，因此也不需要样式化 - 从而加速代码。如果您需要特殊情况，可以在无头环境中手动启用样式。请注意，如果您计划渲染图形，则禁用样式没有意义。另请注意，必须调用cy.destroy（）来清理启用样式的无头实例。</li>
+<li>hideEdgesOnViewport：一个渲染提示，当设置为true时，渲染器在操作视口时不会渲染边。这使得平移，缩放，拖动等对大图更具响应性。由于性能增强，此选项现在基本上没有实际意义。</li>
+<li>textureOnViewport：一种渲染提示，当设置为true时，渲染器在平移和缩放过程中使用纹理而不是绘制元素，从而使大图更具响应性。由于性能增强，此选项现在基本上没有实际意义。</li>
+<li>motionBlur：渲染提示，当设置为true时，渲染器使用运动模糊效果使帧之间的过渡看起来更平滑。这可以增加大图的感知性能。由于性能增强，此选项现在基本上没有实际意义。</li>
+<li>motionBlurOpacity：当motionBlur：true时，此值控制运动模糊帧的不透明度。值越高，运动模糊效果越明显。由于性能增强，此选项现在基本上没有实际意义。</li>
+<li>wheelSensitivity：缩放时更改滚轮灵敏度。这是一个乘法修饰符。因此，0到1之间的值会降低灵敏度（变焦较慢），而大于1的值会增加灵敏度（变焦更快）。此选项设置为合理的值，适用于Linux，Mac和Windows上的主流鼠标（Apple，Logitech，Microsoft）。如果您的特定系统上的默认值似乎太快或太慢，您可能在操作系统或小众鼠标中有非默认的鼠标设置。除非您的应用程序仅适用于特定硬件，否则不应更改此值。否则，您可能会对大多数用户进行缩放太慢或太快的风险。</li>
+<li>pixelRatio：使用手动设置的值覆盖屏幕像素比（建议使用1.0，如果已设置）。这可以通过减少需要渲染的有效区域来提高高密度显示器的性能，尽管在最近的浏览器版本中这是不太必要的。如果要使用硬件的实际像素比，可以设置pixelRatio：’auto’（默认值）。<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1>详细的<a href="http://js.cytoscape.org/#core/graph-manipulation" target="_blank" rel="noopener">API</a> <a href="http://js.cytoscape.org/#core/graph-manipulation" target="_blank" rel="noopener">http://js.cytoscape.org/#core/graph-manipulation</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/ef969d0e.html" rel="next" title="机器学习的一般流程">
+                <i class="fa fa-chevron-left"></i> 机器学习的一般流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/74154df9.html" rel="prev" title="jsphylosvg 学习">
+                jsphylosvg 学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="cacacai"/>
+            
+              <p class="site-author-name" itemprop="name">cacacai</p>
+              <p class="site-description motion-element" itemprop="description">夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里</p>
+          </div>
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#获取cytoscape-js"><span class="nav-number">1.</span> <span class="nav-text">获取cytoscape.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入cytoscape"><span class="nav-number">2.</span> <span class="nav-text">引入cytoscape</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制一个简单的图形"><span class="nav-number">3.</span> <span class="nav-text">绘制一个简单的图形</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数列表"><span class="nav-number">4.</span> <span class="nav-text">参数列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本参数"><span class="nav-number">4.1.</span> <span class="nav-text">基本参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化视图"><span class="nav-number">4.2.</span> <span class="nav-text">初始化视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互参数"><span class="nav-number">4.3.</span> <span class="nav-text">交互参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染参数"><span class="nav-number">4.4.</span> <span class="nav-text">渲染参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cacacai</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数"></span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = '昵称,邮箱,网址';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'YUDKI6iMvLCHyttuxYWbMpWc-gzGzoHsz',
+    appKey: 'j5QadiIkFQuWd0RLYXGHhCQ1',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+ <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+ <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+ <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
