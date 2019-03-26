@@ -103,27 +103,25 @@
 
 
 
-  <meta name="description" content="介绍Gearman实现异步任务处理。Gearman是一个用来把工作委派给其他机器、分布式的调用更适合做某项工作的机器、并发的做某项工作在多个调用间做负载均衡、或用来在调用其它语言的函数的系统。官方网站http://gearman.org/">
-<meta name="keywords" content="gearman,perl">
+  <meta name="description" content="遇到的一些Perl模块使用以及功能说明">
+<meta name="keywords" content="perl模块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gearman使用学习">
-<meta property="og:url" content="http://yoursite.com/post/e3d1cbff.html">
+<meta property="og:title" content="perl模块">
+<meta property="og:url" content="http://yoursite.com/post/d1642b2a.html">
 <meta property="og:site_name" content="cacacai">
-<meta property="og:description" content="介绍Gearman实现异步任务处理。Gearman是一个用来把工作委派给其他机器、分布式的调用更适合做某项工作的机器、并发的做某项工作在多个调用间做负载均衡、或用来在调用其它语言的函数的系统。官方网站http://gearman.org/">
+<meta property="og:description" content="遇到的一些Perl模块使用以及功能说明">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/pasted-27.png">
-<meta property="og:updated_time" content="2019-03-22T02:37:29.517Z">
+<meta property="og:updated_time" content="2019-03-21T02:58:51.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gearman使用学习">
-<meta name="twitter:description" content="介绍Gearman实现异步任务处理。Gearman是一个用来把工作委派给其他机器、分布式的调用更适合做某项工作的机器、并发的做某项工作在多个调用间做负载均衡、或用来在调用其它语言的函数的系统。官方网站http://gearman.org/">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-27.png">
+<meta name="twitter:title" content="perl模块">
+<meta name="twitter:description" content="遇到的一些Perl模块使用以及功能说明">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/e3d1cbff.html">
+  <link rel="canonical" href="http://yoursite.com/post/d1642b2a.html">
 
 
 
@@ -133,7 +131,7 @@
   };
 </script>
 
-  <title>Gearman使用学习 | cacacai</title>
+  <title>perl模块 | cacacai</title>
   
 
 
@@ -326,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e3d1cbff.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d1642b2a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cacacai">
@@ -343,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Gearman使用学习
+          <h1 class="post-title" itemprop="name headline">perl模块
 
               
             
@@ -369,24 +367,12 @@
                 
               
 
-              <time title="创建时间：2019-03-15 14:25:00" itemprop="dateCreated datePublished" datetime="2019-03-15T14:25:00+08:00">2019-03-15</time>
+              <time title="创建时间：2019-03-21 09:23:00 / 修改时间：10:58:51" itemprop="dateCreated datePublished" datetime="2019-03-21T09:23:00+08:00">2019-03-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-22 10:37:29" itemprop="dateModified" datetime="2019-03-22T10:37:29+08:00">2019-03-22</time>
               
             
           </span>
@@ -403,7 +389,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/perl/" itemprop="url" rel="index"><span itemprop="name">perl</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生物信息学/" itemprop="url" rel="index"><span itemprop="name">生物信息学</span></a></span>
 
                 
                 
@@ -421,8 +407,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/post/e3d1cbff.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/e3d1cbff.html" itemprop="commentCount"></span>
+                <a href="/post/d1642b2a.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/d1642b2a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -478,33 +464,17 @@
       
 
       
-        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Gearman实现异步任务处理。<br>Gearman是一个用来把工作委派给其他机器、分布式的调用更适合做某项工作的机器、并发的做某项工作在多个调用间做负载均衡、或用来在调用其它语言的函数的系统。<br>官方网站<a href="http://gearman.org/" target="_blank" rel="noopener">http://gearman.org/</a><br><a id="more"></a><br>Gearman提供了一种通用的程序框架来将你的<b>任务分发到不同的机器或者不同的进程当中。它提供了你进行并行工作的能力、负载均衡处理的能力，以及在不同程序语言之间沟通的能力</b>。<br>Gearman能够应用的领域非常广泛，从高可用的网站到数据库的复制任务。总之，Gearman就是负责分发处理的中枢系统，它的优点包括：</p>
-<ul>
-<li>开源：Gearman免费并且开源,多语言支持：Gearman支持的语言种类非常丰富。让我们能够用一种语言来编写Worker程序，但是用另外一种语言编写Client程序。</li>
-<li>灵活：不必拘泥于固定的形式。您可以采用你希望的任何形式，例如 Map/Reduce。快速：Gearman的协议非常简单，并且有一个用C语言实现的，经过优化的服务器，保证应用的负载在非常低的水平。</li>
-<li>可植入：因为Gearman非常小巧、灵活。因此您可以将他置入到现有的任何系统中。</li>
-<li>没有单点：Gearman不仅可以帮助扩展系统，同样可以避免系统的失败。</li>
-</ul>
-<h1 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a>工作原理：</h1><p>使用Gearman的应用通常有三部分组成：一个Client、一个Worker、一个任务服务器。 </p>
-<ul>
-<li>Client的作用是提出一个 Job 任务 交给 Job Server 任务服务器。</li>
-<li>Job Server 会去寻找一个 合适的 Worker 来完成这项任务。</li>
-<li>Worker 执行由 Client 发送过来的 Job，并且将结果通过 Job Server 返回给 Client。<br>Gearman 提供了 Client 和 Worker 的 API，利用这些API 应用可以同 Gearman Job Server来进行通信。Gearman 内部 Client 和 Worker 之间的通信都是通过 TCP 连接来进行的。工作的流程如下图所示：</li>
-</ul>
-<p><img src="/images/pasted-27.png" alt="upload successful"></p>
-<h1 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h1><p>一个Gearman请求的处理过程涉及三个角色：Client -&gt; Job -&gt; Worker。</p>
-<ul>
-<li>Client（产生者）：请求的发起者，可以是 C，PHP，Perl，MySQL UDF 等等。</li>
-<li>Job（调度者）：请求的调度者（后台服务进程），用来负责协调把 Client 发出的请求转发给合适的 Work。</li>
-<li>Worker（消费者）：请求的处理者，可以是 C，PHP，Perl 等等。<br>因为 Client，Worker 并不限制用一样的语言，所以有利于多语言多系统之间的集成。<br>甚至我们通过增加更多的 Worker，可以很方便的实现应用程序的分布式负载均衡架构。</li>
-</ul>
-<h1 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h1><p>centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install gearmand</span><br></pre></td></tr></table></figure></p>
-<p>开启服务，默认4730端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gearmand -d</span><br></pre></td></tr></table></figure></p>
-<p>如果用perl编写client和worker还需要安装相关的模块<a href="https://cacacai.cn/post/6e46818c.html" target="_blank" rel="noopener">https://cacacai.cn/post/6e46818c.html</a><br>Linux环境自带perl</p>
-<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p>client.pl将消息发送到server，相当于生产者；<br>worker.pl来处理这些消息，并把结果返回给client.pl，<br>相当于消费者。我们观察输出即可。<br>client.pl代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/perl</span><br><span class="line">use strict;</span><br><span class="line">use warnings;</span><br><span class="line">use Gearman::Client;</span><br><span class="line">use Storable; </span><br><span class="line">use Storable qw(freeze);</span><br><span class="line">use Storable qw(thaw);</span><br><span class="line">use IO::All;</span><br><span class="line"> </span><br><span class="line"># fork this process</span><br><span class="line">my $pid = fork();</span><br><span class="line">if ($pid == 0)</span><br><span class="line">&#123;</span><br><span class="line">    # do this in the child</span><br><span class="line">    print &quot;start new client \n&quot;;</span><br><span class="line">    my $client = Gearman::Client-&gt;new;</span><br><span class="line">    print &quot;finish new client \n&quot;;</span><br><span class="line">    print &quot;start job_servers \n&quot;;</span><br><span class="line">    $client-&gt;job_servers(&apos;127.0.0.1&apos;,4730);</span><br><span class="line">    print &quot;finish job_servers \n&quot;;</span><br><span class="line">    # 设置异步任务</span><br><span class="line">    print &quot;start new_task_set \n&quot;;</span><br><span class="line">    my $tasks = $client-&gt;new_task_set; </span><br><span class="line">    print &quot;finish new_task_set \n&quot;;</span><br><span class="line">    print &quot;start add_task \n&quot;;</span><br><span class="line">    #handle database</span><br><span class="line">    my @rows=(&apos;hello&apos;,&apos;byebye&apos;);</span><br><span class="line">    $tasks-&gt;add_task(</span><br><span class="line">        # 开始任务,多个参数</span><br><span class="line">        showMessage =&gt; freeze(\@rows), </span><br><span class="line">        # 注册回调函数 </span><br><span class="line">        &#123; on_complete =&gt; \&amp;complete &#125;,  </span><br><span class="line">    );  </span><br><span class="line">    print &quot;finish add_task \n&quot;;</span><br><span class="line">    print &quot;start wait \n&quot;;</span><br><span class="line">    # 等待任务结束</span><br><span class="line">    $tasks-&gt;wait;</span><br><span class="line">    print &quot;finish wait \n&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">print &quot;The background task will be finished shortly.\n&quot;;</span><br><span class="line">  </span><br><span class="line">sub complete&#123;   </span><br><span class="line">    my $ret = $&#123; $_[0] &#125;;</span><br><span class="line">    #io(&quot;complete.txt&quot;)-&gt;print($ret);</span><br><span class="line">    print $ret, &quot;\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>worker.pl代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/perl</span><br><span class="line">use strict;</span><br><span class="line">use warnings;</span><br><span class="line">use Gearman::Worker;</span><br><span class="line">use Storable qw(thaw);</span><br><span class="line">use Storable qw(freeze);</span><br><span class="line"> </span><br><span class="line"> print &quot;start new worker \n&quot;;</span><br><span class="line">my $worker = Gearman::Worker-&gt;new;</span><br><span class="line">print &quot;finish new worker \n&quot;;</span><br><span class="line">print &quot;start job_servers \n&quot;;</span><br><span class="line">$worker-&gt;job_servers(&apos;127.0.0.1&apos;,4730);</span><br><span class="line">print &quot;finish job_servers \n&quot;;</span><br><span class="line"># Worker 注册可以使用的功能</span><br><span class="line">print &quot;start register_function \n&quot;;</span><br><span class="line">$worker-&gt;register_function( showMessage =&gt; \&amp;showMessage );  </span><br><span class="line"> print &quot;finish register_function \n&quot;;</span><br><span class="line"># 等待连接的任务</span><br><span class="line">print &quot;start work \n&quot;;</span><br><span class="line"> </span><br><span class="line">$worker-&gt;work while 1;  </span><br><span class="line">print &quot;finish work \n&quot;;</span><br><span class="line">sub showMessage&#123;</span><br><span class="line">    my @row=@&#123; thaw($_[0]-&gt;arg) &#125;;</span><br><span class="line"> </span><br><span class="line">    my $job = \@row;</span><br><span class="line">    print &quot;\n&quot;;</span><br><span class="line">    print &quot;$row[0] \n&quot;;</span><br><span class="line">    print &quot;$row[1] \n&quot;;   </span><br><span class="line">    print &quot;start sleep \n&quot;;</span><br><span class="line">    my $date = &amp;getTime();  </span><br><span class="line">    print  $date-&gt;&#123;date&#125;,&quot; &quot;,$date-&gt;&#123;hour&#125;,&quot;:&quot;,$date-&gt;&#123;minute&#125;,&quot;:&quot;,$date-&gt;&#123;second&#125;;</span><br><span class="line">    print &quot;\n&quot;;</span><br><span class="line">    sleep(10);</span><br><span class="line">    print &quot;finish sleep \n&quot;;</span><br><span class="line">    $date = &amp;getTime();  </span><br><span class="line">    print  $date-&gt;&#123;date&#125;,&quot; &quot;,$date-&gt;&#123;hour&#125;,&quot;:&quot;,$date-&gt;&#123;minute&#125;,&quot;:&quot;,$date-&gt;&#123;second&#125;;</span><br><span class="line">    print &quot;\n&quot;;</span><br><span class="line"> </span><br><span class="line">    my $ret = &quot;hello world&quot;;</span><br><span class="line">    return $ret;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">sub getTime</span><br><span class="line">&#123;</span><br><span class="line">    my $time = shift || time();</span><br><span class="line">    my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($time);</span><br><span class="line"> </span><br><span class="line">    $year += 1900;</span><br><span class="line">    $mon ++;</span><br><span class="line"> </span><br><span class="line">    $min  = &apos;0&apos;.$min  if length($min)  &lt; 2;</span><br><span class="line">    $sec  = &apos;0&apos;.$sec  if length($sec)  &lt; 2;</span><br><span class="line">    $mon  = &apos;0&apos;.$mon  if length($mon)  &lt; 2;</span><br><span class="line">    $mday = &apos;0&apos;.$mday if length($mday) &lt; 2;</span><br><span class="line">    $hour = &apos;0&apos;.$hour if length($hour) &lt; 2;</span><br><span class="line">     </span><br><span class="line">    my $weekday = (&apos;Sun&apos;,&apos;Mon&apos;,&apos;Tue&apos;,&apos;Wed&apos;,&apos;Thu&apos;,&apos;Fri&apos;,&apos;Sat&apos;)[$wday];</span><br><span class="line"> </span><br><span class="line">    return &#123; &apos;second&apos; =&gt; $sec,</span><br><span class="line">             &apos;minute&apos; =&gt; $min,</span><br><span class="line">             &apos;hour&apos;   =&gt; $hour,</span><br><span class="line">             &apos;day&apos;    =&gt; $mday,</span><br><span class="line">             &apos;month&apos;  =&gt; $mon,</span><br><span class="line">             &apos;year&apos;   =&gt; $year,</span><br><span class="line">             &apos;weekNo&apos; =&gt; $wday,</span><br><span class="line">             &apos;wday&apos;   =&gt; $weekday,</span><br><span class="line">             &apos;yday&apos;   =&gt; $yday,</span><br><span class="line">             &apos;date&apos;   =&gt; &quot;$year-$mon-$mday&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每运行一次worker.pl表示启动一个新的消费者。如果只启动一个消费者，而启动多个生产者，就可以很好地观察到“排队”效果了：一定是一个任务执行完成之后才会开始处理另一个任务。<br>这样gearman和perl扩展包的安装使用就结束了</p>
-<p>参考<a href="http://www.nohup.cc/article/231/" target="_blank" rel="noopener">http://www.nohup.cc/article/231/</a></p>
+        <p>遇到的一些Perl模块使用以及功能说明<br><a id="more"></a></p>
+<h1 id="Capture-Tiny"><a href="#Capture-Tiny" class="headerlink" title="Capture::Tiny"></a>Capture::Tiny</h1><p>提供了一种简单，可移植的方式来捕获发送到STDOUT(标准输出)或STDERR(标准错误输出)的几乎任何内容，无论它是来自Perl，来自XS代码还是来自外部程序。可选地，输出可以激活捕捉，以便在传递到原始文件句柄时捕获它。因此，它甚至适用于Windows（通常）。不用去想在什么情况下用什么用什么捕获模块，用这个就够了。<br><a href="https://metacpan.org/pod/Capture::Tiny" target="_blank" rel="noopener">https://metacpan.org/pod/Capture::Tiny</a></p>
+<p>简单来说就是可以获取多个返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">use Capture::Tiny &apos;:all&apos;;</span><br><span class="line"># capture from external command</span><br><span class="line"> ($stdout, $stderr, $exit) = capture &#123;</span><br><span class="line">  system( $cmd, @args );</span><br><span class="line">&#125;;</span><br><span class="line"># capture from arbitrary code (Perl or external)</span><br><span class="line">($stdout, $stderr, @result) = capture &#123;</span><br><span class="line">  # your code here</span><br><span class="line">&#125;;</span><br><span class="line"># capture partial or merged output</span><br><span class="line">$stdout = capture_stdout &#123; ... &#125;;</span><br><span class="line">$stderr = capture_stderr &#123; ... &#125;;</span><br><span class="line">$merged = capture_merged &#123; ... &#125;;</span><br><span class="line"># tee output</span><br><span class="line">($stdout, $stderr) = tee &#123;</span><br><span class="line">  # your code here</span><br><span class="line">&#125;;</span><br><span class="line">$stdout = tee_stdout &#123; ... &#125;;</span><br><span class="line">$stderr = tee_stderr &#123; ... &#125;;</span><br><span class="line">$merged = tee_merged &#123; ... &#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Bio-Seq-Bio-SeqIO"><a href="#Bio-Seq-Bio-SeqIO" class="headerlink" title="Bio::Seq Bio::SeqIO"></a>Bio::Seq Bio::SeqIO</h1><p><a href="https://metacpan.org/pod/Bio::Seq" target="_blank" rel="noopener">https://metacpan.org/pod/Bio::Seq</a></p>
+<p>对象包含的东西<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bio::PrimarySeq  - 序列和名称[Fasta文件的序列]</span><br><span class="line">Bio::SeqFeatureI - 序列上的一种特性，可能带有序列、位置和注释。[EMBL / GenBank / DDBJ特征表中的单个实体]</span><br><span class="line">Bio::Seq		 - 具有自己的注释的序列和序列特征集合（聚合）。[单个EMBL / GenBank / DDBJ实体]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"># This is the main sequence object in Bioperl</span><br><span class="line"> </span><br><span class="line"># gets a sequence from a file 从文件中读取一个序列</span><br><span class="line">$seqio  = Bio::SeqIO-&gt;new( &apos;-format&apos; =&gt; &apos;embl&apos; , -file =&gt; &apos;myfile.dat&apos;);</span><br><span class="line">$seqobj = $seqio-&gt;next_seq();</span><br><span class="line"> </span><br><span class="line"># SeqIO can both read and write sequences; see Bio::SeqIO SeqIO可以读写序列</span><br><span class="line"># for more information and examples</span><br><span class="line"> </span><br><span class="line"># get from database  从数据库中读取</span><br><span class="line">$db = Bio::DB::GenBank-&gt;new();</span><br><span class="line">$seqobj = $db-&gt;get_Seq_by_acc(&apos;X78121&apos;);</span><br><span class="line"> </span><br><span class="line"># make from strings in script</span><br><span class="line">$seqobj = Bio::Seq-&gt;new( -display_id =&gt; &apos;my_id&apos;,</span><br><span class="line">                         -seq =&gt; $sequence_as_string);</span><br><span class="line"> </span><br><span class="line"># gets sequence as a string from sequence object 从序列对象中获取序列字符串</span><br><span class="line">$seqstr   = $seqobj-&gt;seq(); # actual sequence as a string</span><br><span class="line">$seqstr   = $seqobj-&gt;subseq(10,50); # slice in biological coordinates</span><br><span class="line"> </span><br><span class="line"># retrieves information from the sequence</span><br><span class="line"># features must implement Bio::SeqFeatureI interface</span><br><span class="line"> </span><br><span class="line">@features = $seqobj-&gt;get_SeqFeatures(); # just top level </span><br><span class="line">foreach my $feat ( @features ) &#123;</span><br><span class="line">    print &quot;Feature &quot;,$feat-&gt;primary_tag,&quot; starts &quot;,$feat-&gt;start,&quot; ends &quot;,</span><br><span class="line">        $feat-&gt;end,&quot; strand &quot;,$feat-&gt;strand,&quot;\n&quot;;</span><br><span class="line"> </span><br><span class="line">    # features retain link to underlying sequence object</span><br><span class="line">    print &quot;Feature sequence is &quot;,$feat-&gt;seq-&gt;seq(),&quot;\n&quot;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># sequences may have a species</span><br><span class="line"> </span><br><span class="line">if( defined $seq-&gt;species ) &#123;</span><br><span class="line">    print &quot;Sequence is from &quot;,$species-&gt;binomial,&quot; [&quot;,$species-&gt;common_name,&quot;]\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># annotation objects are Bio::AnnotationCollectionI&apos;s</span><br><span class="line">$ann      = $seqobj-&gt;annotation(); # annotation object</span><br><span class="line"> </span><br><span class="line"># references is one type of annotations to get. Also get</span><br><span class="line"># comment and dblink. Look at Bio::AnnotationCollection for</span><br><span class="line"># more information</span><br><span class="line"> </span><br><span class="line">foreach my $ref ( $ann-&gt;get_Annotations(&apos;reference&apos;) ) &#123;</span><br><span class="line">    print &quot;Reference &quot;,$ref-&gt;title,&quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># you can get truncations, translations and reverse complements, these</span><br><span class="line"># all give back Bio::Seq objects themselves, though currently with no</span><br><span class="line"># features transferred</span><br><span class="line"> </span><br><span class="line">my $trunc = $seqobj-&gt;trunc(100,200);</span><br><span class="line">my $rev   = $seqobj-&gt;revcom();</span><br><span class="line"> </span><br><span class="line"># there are many options to translate - check out the docs</span><br><span class="line">my $trans = $seqobj-&gt;translate();</span><br><span class="line"> </span><br><span class="line"># these functions can be chained together</span><br><span class="line"> </span><br><span class="line">my $trans_trunc_rev = $seqobj-&gt;trunc(100,200)-&gt;revcom-&gt;translate();</span><br></pre></td></tr></table></figure>
+<h1 id="DBI"><a href="#DBI" class="headerlink" title="DBI"></a>DBI</h1><p>DBI是Perl编程语言的数据库访问模块。它定义了一组方法，变量和约定，它们提供了一致的数据库接口，与所使用的实际数据库无关。重要的是要记住DBI只是一个接口。DBI是应用程序与一个或多个数据库驱动程序模块之间的“粘合剂”层。它是执行大部分实际工作的驱动程序模块。DBI为驱动程序提供了标准的接口和框架。<br>DBI架构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">           |&lt;- Scope of DBI -&gt;|</span><br><span class="line">                .-.   .--------------.   .-------------.</span><br><span class="line">.-------.       | |---| XYZ Driver   |---| XYZ Engine  |</span><br><span class="line">| Perl  |       | |   `--------------&apos;   `-------------&apos;</span><br><span class="line">| script|  |A|  |D|   .--------------.   .-------------.</span><br><span class="line">| using |--|P|--|B|---|Oracle Driver |---|Oracle Engine|</span><br><span class="line">| DBI   |  |I|  |I|   `--------------&apos;   `-------------&apos;</span><br><span class="line">| API   |       | |...</span><br><span class="line">|methods|       | |... Other drivers</span><br><span class="line">`-------&apos;       | |...</span><br><span class="line">                `-&apos;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://metacpan.org/pod/DBI" target="_blank" rel="noopener">https://metacpan.org/pod/DBI</a></p>
+<h1 id="IO-All"><a href="#IO-All" class="headerlink" title="IO::All"></a>IO::All</h1><p>IO :: All将所有最好的Perl IO模块组合成一个漂亮的面向对象的界面，大大简化了日常的Perl IO习语。它导出一个名为io的函数，它返回一个新的IO :: All对象。那个对象可以做到这一切！IO :: All对象是IO :: File，IO :: Dir，IO :: Socket，Tie :: File，File :: Spec，File :: Path，File :: MimeInfo和File :: ReadBackwards的代理;以及所有DBM和MLDBM模块。您可以使用这些类中的大多数方法以及IO :: Handle（它们从中继承）。IO :: All添加了许多其他有用的惯用方法，包括文件统计和操作函数。IO :: All是可插拔的，IO :: All :: LWP和IO :: All :: Mailto等模块增加了更多功能。可选地，每个IO :: All对象都可以绑定到自身。这意味着您可以在其上使用大多数perl IO内置：readline，&lt;&gt;，getc，print，printf，syswrite，sysread，close。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use IO::All;</span><br><span class="line"> </span><br><span class="line"># Some of the many ways to read a whole file into a scalar</span><br><span class="line">$contents = io-&gt;file(&apos;file.txt&apos;)-&gt;slurp;    # Read an entire file</span><br><span class="line">@files    = io-&gt;dir(&apos;lib&apos;)-&gt;all;            # Get a list of files</span><br><span class="line">$tail     = io-&gt;pipe(&apos;-| tail app.log&apos;);    # Open a pipe to a command</span><br><span class="line">$line     = $tail-&gt;getline;                 # Read from the pipe</span><br></pre></td></tr></table></figure>
+<h1 id="Storable"><a href="#Storable" class="headerlink" title="Storable"></a>Storable</h1><p>Storable包为包含SCALAR，ARRAY，HASH或REF对象的Perl数据结构带来持久性，即可以方便地存储到磁盘并在以后检索的任何内容。它可以通过调用store来引用要存储的对象以及应该写入图像的文件名，以常规的过程方式使用它。例程对I / O问题或其他内部错误返回undef，否则返回true值。严重错误会作为骰子异常传播。要检索存储到磁盘的数据，请使用带有文件名的检索。存储在该文件中的对象将重新创建到内存中，并返回对根对象的引用。如果在读取时发生I / O错误，则返回undef。其他严重错误通过die传播。由于存储是以递归方式执行的，因此您可能希望将对共享大量公共数据的对象的引用填充到单个数组或哈希表中，然后存储该对象。这样，当您检索整个事物时，对象将继续共享它们最初共享的内容。<br>把对象进行序列化进行存贮或传输<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">use Storable;</span><br><span class="line">store \%table, &apos;file&apos;;</span><br><span class="line">$hashref = retrieve(&apos;file&apos;);</span><br><span class="line"> </span><br><span class="line">use Storable qw(nstore store_fd nstore_fd freeze thaw dclone);</span><br><span class="line"> </span><br><span class="line"># Network order</span><br><span class="line">nstore \%table, &apos;file&apos;;</span><br><span class="line">$hashref = retrieve(&apos;file&apos;);   # There is NO nretrieve()</span><br><span class="line"> </span><br><span class="line"># Storing to and retrieving from an already opened file</span><br><span class="line">store_fd \@array, \*STDOUT;</span><br><span class="line">nstore_fd \%table, \*STDOUT;</span><br><span class="line">$aryref = fd_retrieve(\*SOCKET);</span><br><span class="line">$hashref = fd_retrieve(\*SOCKET);</span><br><span class="line"> </span><br><span class="line"># Serializing to memory</span><br><span class="line">$serialized = freeze \%table;</span><br><span class="line">%table_clone = %&#123; thaw($serialized) &#125;;</span><br><span class="line"> </span><br><span class="line"># Deep (recursive) cloning</span><br><span class="line">$cloneref = dclone($ref);</span><br><span class="line"> </span><br><span class="line"># Advisory locking</span><br><span class="line">use Storable qw(lock_store lock_nstore lock_retrieve)</span><br><span class="line">lock_store \%table, &apos;file&apos;;</span><br><span class="line">lock_nstore \%table, &apos;file&apos;;</span><br><span class="line">$hashref = lock_retrieve(&apos;file&apos;);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -528,9 +498,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/gearman/" rel="tag"># gearman</a>
-          
-            <a href="/tags/perl/" rel="tag"># perl</a>
+            <a href="/tags/perl模块/" rel="tag"># perl模块</a>
           
         </div>
       
@@ -543,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/2de484b4.html" rel="next" title="hexo后台运行">
-                <i class="fa fa-chevron-left"></i> hexo后台运行
+              <a href="/post/e9265c8c.html" rel="next" title="文本报错处理">
+                <i class="fa fa-chevron-left"></i> 文本报错处理
               </a>
             
           </div>
@@ -553,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/e9265c8c.html" rel="prev" title="文本报错处理">
-                文本报错处理 <i class="fa fa-chevron-right"></i>
+              <a href="/post/18541bad.html" rel="prev" title="阿里云发送邮件Perl">
+                阿里云发送邮件Perl <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -654,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作原理："><span class="nav-number">2.</span> <span class="nav-text">工作原理：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行过程"><span class="nav-number">3.</span> <span class="nav-text">运行过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装使用"><span class="nav-number">4.</span> <span class="nav-text">安装使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#demo"><span class="nav-number">5.</span> <span class="nav-text">demo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Capture-Tiny"><span class="nav-number">1.</span> <span class="nav-text">Capture::Tiny</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bio-Seq-Bio-SeqIO"><span class="nav-number">2.</span> <span class="nav-text">Bio::Seq Bio::SeqIO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DBI"><span class="nav-number">3.</span> <span class="nav-text">DBI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO-All"><span class="nav-number">4.</span> <span class="nav-text">IO::All</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Storable"><span class="nav-number">5.</span> <span class="nav-text">Storable</span></a></li></ol></div>
             
 
           </div>
