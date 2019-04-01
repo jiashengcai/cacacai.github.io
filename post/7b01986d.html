@@ -112,7 +112,7 @@
 <meta property="og:description" content="为了使用maven管理现有的项目依赖，需要把现有的依赖转换dependence">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/pasted-33.png">
-<meta property="og:updated_time" content="2019-03-28T13:28:12.331Z">
+<meta property="og:updated_time" content="2019-03-28T13:47:13.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="根据已有的jar依赖生成maven的pom.xml">
 <meta name="twitter:description" content="为了使用maven管理现有的项目依赖，需要把现有的依赖转换dependence">
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="创建时间：2019-03-28 20:34:00 / 修改时间：21:28:12" itemprop="dateCreated datePublished" datetime="2019-03-28T20:34:00+08:00">2019-03-28</time>
+              <time title="创建时间：2019-03-28 20:34:00 / 修改时间：21:47:13" itemprop="dateCreated datePublished" datetime="2019-03-28T20:34:00+08:00">2019-03-28</time>
             
 
             
@@ -454,6 +454,10 @@
 <p>生成类似的xml内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencys&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.antlr&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;antlr4-runtime&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;4.5.1-1&lt;/version&gt;</span><br><span class="line">	&lt;/dependency&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
 <h1 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h1><p>有的jar包可能找不到，显示not find,<br>需要自己手动去找 <a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></p>
 <p>对于运行在tomcat的Java web项目，运行后会出现很多Class Notfound报错，是因为没有在WEB-INF/lib下生成jar包，需要再输出的时候把maven管理的jar的输出到lib中，然后输出到tomcat中。<br><img src="/images/pasted-33.png" alt="upload successful"></p>
+<p>java.lang.ClassNotFoundException: com.sun.faces.config.ConfigureListener<br>一个是缺少jsf.jar包,二是存在jar包冲突</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- java ee包 --就这个。。。。。。。&gt;  </span><br><span class="line">            &lt;dependency&gt;  </span><br><span class="line">                &lt;groupId&gt;javax&lt;/groupId&gt;  </span><br><span class="line">                &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;  </span><br><span class="line">                &lt;version&gt;6.0&lt;/version&gt;  </span><br><span class="line">            &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- java ee包 --&gt;  </span><br><span class="line">            &lt;dependency&gt;  </span><br><span class="line">                &lt;groupId&gt;javax&lt;/groupId&gt;  </span><br><span class="line">                &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;  </span><br><span class="line">                &lt;version&gt;6.0&lt;/version&gt;  </span><br><span class="line">                &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p><code>&lt;scope&gt;provided&lt;/scope&gt;</code>，provided表明该包只在编译和测试的时候用，所以，当启动tomcat的时候，就不会冲突了</p>
 
       
     </div>
@@ -501,6 +505,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/12ec955.html" rel="prev" title="Lombok使用与原理">
+                Lombok使用与原理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
