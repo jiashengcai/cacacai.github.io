@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="cacacai">
 <meta property="og:description" content="收集springboot的工具类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T12:58:21.815Z">
+<meta property="og:updated_time" content="2019-04-03T13:14:45.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot处理技巧">
 <meta name="twitter:description" content="收集springboot的工具类">
@@ -367,12 +367,24 @@
                 
               
 
-              <time title="创建时间：2019-04-01 15:43:08 / 修改时间：20:58:21" itemprop="dateCreated datePublished" datetime="2019-04-01T15:43:08+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 15:43:08" itemprop="dateCreated datePublished" datetime="2019-04-01T15:43:08+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-03 21:14:45" itemprop="dateModified" datetime="2019-04-03T21:14:45+08:00">2019-04-03</time>
               
             
           </span>
@@ -447,6 +459,11 @@
 
       
         <p>收集springboot的工具类<br><a id="more"></a></p>
+<h1 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h1><p>此代码获取到的是系统绝对路径到resources的目录<br>在debug状态下获取路径F:/workspace/bastion/target/classes/ == src/main/resouces</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResourceUtils.getURL(<span class="string">"classpath:"</span>).getPath();</span><br></pre></td></tr></table></figure>
+<p>另外使用以上代码需要注意，因为以jar包发布时，我们存储的路径是与jar包同级的static目录，因此我们需要在jar包目录的application.properties配置文件中设置静态资源路径，如下所示：</p>
+<p>设置静态资源路径，多个以逗号分隔<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.resources.<span class="keyword">static</span>-locations=classpath:<span class="keyword">static</span>/,file:<span class="keyword">static</span>/</span><br></pre></td></tr></table></figure></p>
+<p>以jar包发布springboot项目时，默认会先使用jar包跟目录下的application.properties来作为项目配置文件。</p>
 <h1 id="获取IP地址"><a href="#获取IP地址" class="headerlink" title="获取IP地址"></a>获取IP地址</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getIpAddr</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        String ipAddress = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ipAddress = request.getHeader(<span class="string">"x-forwarded-for"</span>);</span><br><span class="line">            <span class="keyword">if</span> (ipAddress == <span class="keyword">null</span> || ipAddress.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ipAddress)) &#123;</span><br><span class="line">                ipAddress = request.getHeader(<span class="string">"Proxy-Client-IP"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ipAddress == <span class="keyword">null</span> || ipAddress.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ipAddress)) &#123;</span><br><span class="line">                ipAddress = request.getHeader(<span class="string">"WL-Proxy-Client-IP"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ipAddress == <span class="keyword">null</span> || ipAddress.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ipAddress)) &#123;</span><br><span class="line">                ipAddress = request.getRemoteAddr();</span><br><span class="line">                <span class="keyword">if</span> (ipAddress.equals(<span class="string">"127.0.0.1"</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 根据网卡取本机配置的IP</span></span><br><span class="line">                    InetAddress inet = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        inet = InetAddress.getLocalHost();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (UnknownHostException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    ipAddress = inet.getHostAddress();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割</span></span><br><span class="line">            <span class="keyword">if</span> (ipAddress != <span class="keyword">null</span> &amp;&amp; ipAddress.length() &gt; <span class="number">15</span>) &#123; <span class="comment">// "***.***.***.***".length()</span></span><br><span class="line">                <span class="comment">// = 15</span></span><br><span class="line">                <span class="keyword">if</span> (ipAddress.indexOf(<span class="string">","</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    ipAddress = ipAddress.substring(<span class="number">0</span>, ipAddress.indexOf(<span class="string">","</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            ipAddress=<span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ipAddress = this.getRequest().getRemoteAddr();</span></span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> ipAddress;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/test"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//获取IP地址</span></span><br><span class="line">    String ipAddress =IpUtil.getIpAddr(request);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">return</span> ipAddress;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
@@ -586,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#获取IP地址"><span class="nav-number">1.</span> <span class="nav-text">获取IP地址</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#路径"><span class="nav-number">1.</span> <span class="nav-text">路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取IP地址"><span class="nav-number">2.</span> <span class="nav-text">获取IP地址</span></a></li></ol></div>
             
 
           </div>
