@@ -106,15 +106,18 @@
   <meta name="description" content="把两个文件合并成一个文件 12cat b1.sql b2.sql b3.sql &amp;gt; b_all.sql//cat *.sql &amp;gt; merge.sql 使用time计算命令执行的时间  real时间是指挂钟时间，也就是命令开始执行到结束的时间。这个短时间包括其他进程所占用的时间片，和进程被阻塞时所花费的时间。 user时间是指进程花费在用户模式中的CPU时间，这是唯一真正用于执行进程所花">
 <meta name="keywords" content="Linux命令,vim命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux，vim命令记录">
+<meta property="og:title" content="Linux命令记录">
 <meta property="og:url" content="http://yoursite.com/post/7eadb46f.html">
 <meta property="og:site_name" content="cacacai">
 <meta property="og:description" content="把两个文件合并成一个文件 12cat b1.sql b2.sql b3.sql &amp;gt; b_all.sql//cat *.sql &amp;gt; merge.sql 使用time计算命令执行的时间  real时间是指挂钟时间，也就是命令开始执行到结束的时间。这个短时间包括其他进程所占用的时间片，和进程被阻塞时所花费的时间。 user时间是指进程花费在用户模式中的CPU时间，这是唯一真正用于执行进程所花">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/pasted-58.png">
-<meta property="og:updated_time" content="2019-05-05T02:51:14.630Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-61.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-64.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-62.png">
+<meta property="og:updated_time" content="2019-05-07T05:24:31.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux，vim命令记录">
+<meta name="twitter:title" content="Linux命令记录">
 <meta name="twitter:description" content="把两个文件合并成一个文件 12cat b1.sql b2.sql b3.sql &amp;gt; b_all.sql//cat *.sql &amp;gt; merge.sql 使用time计算命令执行的时间  real时间是指挂钟时间，也就是命令开始执行到结束的时间。这个短时间包括其他进程所占用的时间片，和进程被阻塞时所花费的时间。 user时间是指进程花费在用户模式中的CPU时间，这是唯一真正用于执行进程所花">
 <meta name="twitter:image" content="http://yoursite.com/images/pasted-58.png">
 
@@ -133,7 +136,7 @@
   };
 </script>
 
-  <title>Linux，vim命令记录 | cacacai</title>
+  <title>Linux命令记录 | cacacai</title>
   
 
 
@@ -343,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux，vim命令记录
+          <h1 class="post-title" itemprop="name headline">Linux命令记录
 
               
             
@@ -369,12 +372,24 @@
                 
               
 
-              <time title="创建时间：2019-05-05 10:36:00 / 修改时间：10:51:14" itemprop="dateCreated datePublished" datetime="2019-05-05T10:36:00+08:00">2019-05-05</time>
+              <time title="创建时间：2019-05-05 10:36:00" itemprop="dateCreated datePublished" datetime="2019-05-05T10:36:00+08:00">2019-05-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 13:24:31" itemprop="dateModified" datetime="2019-05-07T13:24:31+08:00">2019-05-07</time>
               
             
           </span>
@@ -457,6 +472,120 @@
 </ul>
 <p>详细 <a href="https://blog.csdn.net/qq_36288184/article/details/78084533" target="_blank" rel="noopener">https://blog.csdn.net/qq_36288184/article/details/78084533</a></p>
 <h1 id="vim中统计字符串出现的次数"><a href="#vim中统计字符串出现的次数" class="headerlink" title="vim中统计字符串出现的次数"></a>vim中统计字符串出现的次数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:m,ns/字符串//gn</span><br><span class="line">上面命令的意思是:统计m到n行中&quot;字符串&quot;出现的次数...应用的时候只需要修改m,n的值和&quot;字符串&quot;替换为待统计的字符串即可</span><br><span class="line"></span><br><span class="line">统计&quot;字符串&quot;在当前编辑文件出现的次数</span><br><span class="line">:%s/字符串//gn</span><br><span class="line"></span><br><span class="line">统计词语在文件中出现的行数:</span><br><span class="line">cat file|grep -i 字符串 |wc -l</span><br></pre></td></tr></table></figure>
+<h1 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h1><p>参考<a href="https://blog.csdn.net/qq_15504597/article/details/82839414" target="_blank" rel="noopener">https://blog.csdn.net/qq_15504597/article/details/82839414</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#添加用户</span><br><span class="line">sudo  useradd  username -d /home/username</span><br><span class="line"></span><br><span class="line">#设定sudo密码</span><br><span class="line">sudo  passwd  username</span><br><span class="line">#请输入新用户sudo密码</span><br><span class="line"></span><br><span class="line">#创建目录及文件</span><br><span class="line">sudo mkdir /home/username</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#修改拥有者</span><br><span class="line">sudo chown -R zero /home/zero/</span><br></pre></td></tr></table></figure></p>
+<p>不能使用TAB键、上下键，命令行不显示当前路径的解决<br>因默认ubuntu创建的普通帐号，默认shell为/bin/sh，而这不支持tab等键的，所以将「指定用户」帐号的shell改为/bin/bash就可以了。</p>
+<p>需要在管理员权限下修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># echo $SHELL</span><br><span class="line">/bin/sh</span><br><span class="line">2.修改shell为/bin/bash：</span><br><span class="line"># usermod -s /bin/bash 用户名</span><br></pre></td></tr></table></figure></p>
+<p>如果需要改密码 直接在个人目录下使用passwd命令  然后先输入当前密码，再输入两遍新密码</p>
+<p>使用用户组管理，统一添加到biouser组<br>更多用户组管理<a href="https://www.cnblogs.com/xd502djj/archive/2011/11/23/2260094.html" target="_blank" rel="noopener">https://www.cnblogs.com/xd502djj/archive/2011/11/23/2260094.html</a></p>
+<h1 id="桂电命令行出校"><a href="#桂电命令行出校" class="headerlink" title="桂电命令行出校"></a>桂电命令行出校</h1><p>xxx为用户名密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --noproxy &quot;*&quot; -d &quot;DDDDD=xxx&amp;upass=xxx&amp;R1=0&amp;R2=00&amp;R3=0&amp;R6=0&amp;0MKKey=123456&amp;buttonClicked=&amp;redirect_url=&amp;err_flag=&amp;username=&amp;password=&amp;user=&amp;cmd=&amp;Login=&quot; http://10.36.254.11/</span><br></pre></td></tr></table></figure></p>
+<h1 id="Ubuntu18-04-禁止自动休眠"><a href="#Ubuntu18-04-禁止自动休眠" class="headerlink" title="Ubuntu18.04 禁止自动休眠"></a>Ubuntu18.04 禁止自动休眠</h1><p>系统去掉了默认的安全策略，不能直接设置自动休眠。</p>
+<p>需要修改配置文件/etc/systemd/logind.conf</p>
+<p>找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HandleLidSwitch=suspend</span><br><span class="line">放开注释，suspend修改为ignore，如下：</span><br><span class="line"></span><br><span class="line">HandleLidSwitch=ignore</span><br></pre></td></tr></table></figure></p>
+<p>重启系统解决，之后不会再自动休眠了<br>如果有界面还要设置界面</p>
+<p>在“Settings”里”Power”下“Power Saving”中选择“Never”，可保持不锁屏</p>
+<h1 id="安装R语言"><a href="#安装R语言" class="headerlink" title="安装R语言"></a>安装R语言</h1><p>参考<a href="http://nohup.cc/article/155/" target="_blank" rel="noopener">http://nohup.cc/article/155/</a><br>在Ubuntu18.04下，使用默认的软件源，直接安装<br>在更新软件源后默认安装的R的版本为3.4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install r-base</span><br></pre></td></tr></table></figure></p>
+<p>安装依赖<br>在终端下输入 R回车进入R的终端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(&quot;mypackage&quot;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="给显卡安装驱动"><a href="#给显卡安装驱动" class="headerlink" title="给显卡安装驱动"></a>给显卡安装驱动</h1><p>在使用<code>nvidia-smi</code>命令时候报错</p>
+<blockquote>
+<p>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running</p>
+</blockquote>
+<p>需要给显卡安装驱动<br>使用命令查看显卡需要安装的驱动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># sudo ubuntu-drivers devices</span><br><span class="line"></span><br><span class="line">== /sys/devices/pci0000:07/0000:07:00.0/0000:08:00.0 ==</span><br><span class="line">modalias : pci:v000010DEd000015F7sv000010DEsd000011DAbc03sc02i00</span><br><span class="line">vendor   : NVIDIA Corporation</span><br><span class="line">model    : GP100GL [Tesla P100 PCIe 12GB]</span><br><span class="line">driver   : nvidia-driver-390 - distro non-free recommended</span><br><span class="line">driver   : xserver-xorg-video-nouveau - distro free builtin</span><br></pre></td></tr></table></figure></p>
+<p>driver为需要安装的驱动，可以手动安装或者自动安装<br>手动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install nvidia-driver-390</span><br><span class="line">$ sudo apt install xserver-xorg-video-nouveau</span><br></pre></td></tr></table></figure></p>
+<p>自动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ubuntu-drivers autoinstall</span><br></pre></td></tr></table></figure></p>
+<p>然后重启<br><code>reboot</code><br>参考<a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux" target="_blank" rel="noopener">https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux</a></p>
+<h1 id="使用top查看服务器使用情况"><a href="#使用top查看服务器使用情况" class="headerlink" title="使用top查看服务器使用情况"></a>使用top查看服务器使用情况</h1><p><img src="/images/pasted-61.png" alt="upload successful"><br>top是Linux下常用的服务器性能状态监视器，可以动态监视服务器正在运行的状态，查看服务器运行异常。是用方法直接在终端输入<code>top</code>，退出方法按下键盘<code>q</code></p>
+<h2 id="在top状态下借助键盘按键来优化信息查看"><a href="#在top状态下借助键盘按键来优化信息查看" class="headerlink" title="在top状态下借助键盘按键来优化信息查看"></a>在top状态下借助键盘按键来优化信息查看</h2><ul>
+<li>控制显示单位<br>top 命令默认以 K 为单位显示内存大小。通过大写字母<code>E</code>来切换内存信息区域的显示单位，使用小写<code>e</code>来控制任务区域中的内存单位。</li>
+<li><p>显示多个 CPU 核心的详细信息<br>无论系统中有多少个 CPU 核心，默认的 CPU 信息总是输出一行，即所有核心加起来的综合数据。按键盘上的数字 1 就可以在不同的视图之间切换，查看各个 CPU 核心单独的数据：</p>
+</li>
+<li><p>显示进程执行的完整命令<br>默认 COMMAND 列只显示程序的名字，并不包含程序的路径。有时能够看到程序的完整路径是很方便的。你可以通过小写字母 c 来切换 COMMAND 列的显示模式：</p>
+</li>
+<li><p>隐藏 idle 的进程<br>在我们调查问题时，总希望以最快的方式找到繁忙的进程。但是 top 命令会把所有的进程列出，这就需要我们通过昏花的老眼去扫描一行行的进程信息。还好，我们可以借助小写字母 i 来控制是否显示处于 idle 状态的进程！使用这个命令后你会发现世界好清爽啊！</p>
+</li>
+<li><p>只显示某个用户的进程<br>如果你想查看以某个用户权限启动的进程，可以使用小写字母 u 。这会提示你输入用户的名称，在你输入用户名称后，按回车键：</p>
+</li>
+<li><p>top 命令的配置文件<br>top 命令是有配置文件的，也就是说你通过命令修改的配置都可以保存下来。保存配置的命令为大写字母 W。在你修改了 top 命令的配置后按下大写字母 W，然后退出 top 命令并再次执行 top 命令，此时你的修改仍然在起作用。</p>
+</li>
+<li><p>帮助文档<br>帮助文档永远都是我们的好朋友，小写字母 h 或者是 ？ 可以打开 top 命令的帮助文档。不要太惊奇，文档有点长哟！</p>
+</li>
+</ul>
+<h2 id="详细指标"><a href="#详细指标" class="headerlink" title="详细指标"></a>详细指标</h2><p>top 命令输出中的第一行是系统的平均负载，这和 uptime 命令的输出是一样的<br><img src="/images/pasted-64.png" alt="upload successful"><br>05:07:06 表示系统当前时间。<br>up 23:59    表示系统最后一次启动后总的运行时间。<br>3 user     表示当前系统中只有一个登录用户。<br>load average<br>CPU的平均负载,三个数字分别表示1分钟内,5分钟内和15分钟内的平均负载. 需要注意的是,这个值不是CPU的使用率(usage),而是反映CPU执行/等待队列的进程量,不是每一个进程都会占用很长时间.如何理解这个值呢,当这个值是多少的时候值得你注意呢?<br>Unix定义CPU负载: 当前正在执行进程数 + 正在等候执行的进程数<br>我们看到的这个值是通过 ‘CPU负载 / processor数量’ 得到的. 如果机器是单核处理器, 1代表processor有工作.如果是多核处理器,那么这个阈值将是核数.所以在4核处理器上,3.50依然不会让你的电脑宕机.<br>一般认为,值在阈值的70%的时候,就要考虑是否是个问题了.当为阈值100%的时候,需要立刻找到问题.大于100%的时候,问题已经严重了.<br>有时Load average高但是CPU usage低,说明很多进程都和CPU打交道,但是压力不在CPU,大家都在队列里等着,可能是在等I/O,这个时候可以结合别的看看I/O是不是有问题.</p>
+<ul>
+<li><p>Tasks<br>linux内核正在管理的任务数<br><img src="/images/pasted-62.png" alt="upload successful"><br>Tasks:270 total    表示当前系统的进程总数。<br>1 running        表示当前系统中有 1 个正在运行的进程。<br>269 sleeping      表示当前系统中有 269 个休眠的进程。<br>0 stopped        表示停止状态的进程数为 0。<br>0 zombie         表示处于僵死状态的进程数为 0。</p>
+</li>
+<li><p>CPU<br>us<br>进程在用户地址空间中消耗 CPU 时间的百分比。像 shell程序、各种语言的编译器、数据库应用、web 服务器和各种桌面应用都算是运行在用户地址空间的进程。这些程序如果不是处于 idle 状态，那么绝大多数的 CPU 时间都是运行在用户态。<br>sy<br>进程在内核地址空间中消耗 CPU 时间的百分比。所有进程要使用的系统资源都是由 Linux 内核处理的。当处于用户态(用户地址空间)的进程需要使用系统的资源时，比如需要分配一些内存、或是执行 IO 操作、再或者是去创建一个子进程，此时就会进入内核态(内核地址空间)运行。事实上，决定进程在下一时刻是否会被运行的进程调度程序就运行在内核态。对于操作系统的设计来说，消耗在内核态的时间应该是越少越好。在实践中有一类典型的情况会使 sy 变大，那就是大量的 IO 操作，因此在调查 IO 相关的问题时需要着重关注它。<br>ni<br>ni 是 nice 的缩写，可以通过 nice 值调整进程用户态的优先级。这里显示的 ni 表示调整过 nice 值的进程消耗掉的 CPU 时间。如果系统中没有进程被调整过 nice 值，那么 ni 就显示为 0<br>id<br>CPU 处于 idle 状态的百分比。一般情况下， us + ni + id 应该接近 100%。<br>wa<br>CPU 等待磁盘 IO 操作的时间。和 CPU 的处理速度相比，磁盘 IO 操作是非常慢的。有很多这样的操作，比如：CPU 在启动一个磁盘读写操作后，需要等待磁盘读写操作的结果。在磁盘读写操作完成前，CPU 只能处于空闲状态。Linux 系统在计算系统平均负载时会把 CPU 等待 IO 操作的时间也计算进去，所以在我们看到系统平均负载过高时，可以通过 wa 来判断系统的性能瓶颈是不是过多的 IO 操作造成的。<br>hi &amp; si<br>这两个值表示系统处理中断消耗的时间。中断分为硬中断和软中断，hi 表示处理硬中断消耗的时间，si 表示处理软中断消耗的时间。硬中断是硬盘、网卡等硬件设备发送给 CPU 的中断消息，当 CPU 收到中断消息后需要进行适当的处理(消耗 CPU 时间)。软中断是由程序发出的中断，最终也会执行相应的处理程序(消耗 CPU 时间)。<br>st<br>只有 Linux 在作为虚拟机运行时 st 才是有意义的。它表示虚机等待 CPU 资源的时间(虚机分到的是虚拟 CPU，当需要真实的 CPU 时，可能真实的 CPU 正在运行其它虚机的任务，所以需要等待)。</p>
+</li>
+</ul>
+<p>小写字母 t 可以控制是否显示任务信息汇总和 CPU 信息。没错，它能控制是否显示两行信息。</p>
+<ul>
+<li><p>KiB Mem<br>RAM 的使用情况. 总共的,已用的和未用的量.<br>为了提高硬盘操作的速度,会用RAM缓存硬盘的数据. Buffers 就是缓存的这部分信息的元信息. Linux会帮你管理这部分.</p>
+</li>
+<li><p>KiB Swap<br>Swap 的使用情况. 总共的,已用的和未用的量.<br>为了提高硬盘操作的速度,会用swap缓存硬盘的文件. cache 就是缓存的这部分数据. Linux会帮你管理这部分. 与buffer比较, cache缓存的是页,buffer是块.</p>
+</li>
+<li><p>进程列表</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>进程号</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>属于哪个用户</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>优先级</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>nice值</td>
+</tr>
+<tr>
+<td>VIRT</td>
+<td>该进程占用的的虚拟内存大小</td>
+</tr>
+<tr>
+<td>RES</td>
+<td>使用物理内存的大小</td>
+</tr>
+<tr>
+<td>SHR</td>
+<td>占用的共享内存大小</td>
+</tr>
+<tr>
+<td>S</td>
+<td>进程状态</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>占用率</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>RES 的占用率</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td>该进程从启动到现在,占用CPU时间总长</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>执行的程序</td>
+</tr>
+</tbody>
+</table>
+<p>S 值有下面几种：<br>    D 不可中断的睡眠状态(uninterruptible sleep)<br>    I   idle 状态<br>    R 进程在 running 队列中，正在运行或准备运行(running)<br>    S 睡眠状态(sleeping)<br>    T 停止状态(stopped by job control signal)<br>    t  跟踪状态(stopped by debugger during trace)<br>    Z 僵尸状态(zombie)</p>
+<p>参考<a href="https://www.cnblogs.com/sparkdev/p/8176778.html" target="_blank" rel="noopener">https://www.cnblogs.com/sparkdev/p/8176778.html</a><br><a href="http://walterinsh.github.io/2014/04/14/understand-top-linux-comand.html" target="_blank" rel="noopener">http://walterinsh.github.io/2014/04/14/understand-top-linux-comand.html</a></p>
+
       
     </div>
 
@@ -605,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#把两个文件合并成一个文件"><span class="nav-number">1.</span> <span class="nav-text">把两个文件合并成一个文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用time计算命令执行的时间"><span class="nav-number">2.</span> <span class="nav-text">使用time计算命令执行的时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim中统计字符串出现的次数"><span class="nav-number">3.</span> <span class="nav-text">vim中统计字符串出现的次数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#把两个文件合并成一个文件"><span class="nav-number">1.</span> <span class="nav-text">把两个文件合并成一个文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用time计算命令执行的时间"><span class="nav-number">2.</span> <span class="nav-text">使用time计算命令执行的时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim中统计字符串出现的次数"><span class="nav-number">3.</span> <span class="nav-text">vim中统计字符串出现的次数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建用户"><span class="nav-number">4.</span> <span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#桂电命令行出校"><span class="nav-number">5.</span> <span class="nav-text">桂电命令行出校</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu18-04-禁止自动休眠"><span class="nav-number">6.</span> <span class="nav-text">Ubuntu18.04 禁止自动休眠</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装R语言"><span class="nav-number">7.</span> <span class="nav-text">安装R语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给显卡安装驱动"><span class="nav-number">8.</span> <span class="nav-text">给显卡安装驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用top查看服务器使用情况"><span class="nav-number">9.</span> <span class="nav-text">使用top查看服务器使用情况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在top状态下借助键盘按键来优化信息查看"><span class="nav-number">9.1.</span> <span class="nav-text">在top状态下借助键盘按键来优化信息查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细指标"><span class="nav-number">9.2.</span> <span class="nav-text">详细指标</span></a></li></ol></li></ol></div>
             
 
           </div>
