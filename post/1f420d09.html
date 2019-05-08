@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="cacacai">
 <meta property="og:description" content="记录thymeleaf使用技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T13:03:36.490Z">
+<meta property="og:updated_time" content="2019-05-07T10:05:51.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thymeleaf处理">
 <meta name="twitter:description" content="记录thymeleaf使用技巧">
@@ -367,12 +367,24 @@
                 
               
 
-              <time title="创建时间：2019-04-09 17:43:00 / 修改时间：21:03:36" itemprop="dateCreated datePublished" datetime="2019-04-09T17:43:00+08:00">2019-04-09</time>
+              <time title="创建时间：2019-04-09 17:43:00" itemprop="dateCreated datePublished" datetime="2019-04-09T17:43:00+08:00">2019-04-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 18:05:51" itemprop="dateModified" datetime="2019-05-07T18:05:51+08:00">2019-05-07</time>
               
             
           </span>
@@ -485,6 +497,13 @@
 <li>‘Sebastian’会在浏览器中显示。静态时。<br>Thymeleaf解析时，会解析/<em>[[…]]</em>/的内容，并把获得的值替换掉/<em>[[…]]</em>/后面的内容。</li>
 </ul>
 <p>详细使用<br><a href="https://blog.csdn.net/mygzs/article/details/52667897" target="_blank" rel="noopener">https://blog.csdn.net/mygzs/article/details/52667897</a></p>
+<h1 id="在thymeleaf模板中动态添加背景图片"><a href="#在thymeleaf模板中动态添加背景图片" class="headerlink" title="在thymeleaf模板中动态添加背景图片"></a>在thymeleaf模板中动态添加背景图片</h1><p>最新版本中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;body th:style=&quot;&apos;background:url(&apos; + @&#123;/image/36.jpg&#125; + &apos;);&apos;&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>坑说明：<br>在thymeleaf 2.16版本，该表达式无法解析。需将thymeleaf版本改成3.0</p>
+<p>做法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;thymeleaf.version&gt;3.0.0.RELEASE&lt;/thymeleaf.version&gt;</span><br><span class="line">        &lt;thymeleaf-layout-dialect.version&gt;2.0.0&lt;/thymeleaf-layout-dialect.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="在thymeleaf中获取web上下文路径"><a href="#在thymeleaf中获取web上下文路径" class="headerlink" title="在thymeleaf中获取web上下文路径"></a>在thymeleaf中获取web上下文路径</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script th:inline=&quot;javascript&quot;&gt;</span><br><span class="line">    var username = [[$&#123;#httpServletRequest.getContextPath()&#125;]];</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>需要在 script 中使用 th:inline=”javascript”</p>
+<p>至于 [[]]。 是thymeleaf 直接在取值的一个语法。<br>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Hello, [[$&#123;session.user.name&#125;]]!&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<p>直接从session中取值，该做法等同于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Hello, &lt;span th:text=&quot;$&#123;session.user.name&#125;&quot;&gt;Sebastian&lt;/span&gt;!&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -632,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#时间"><span class="nav-number">1.</span> <span class="nav-text">时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三元表达式"><span class="nav-number">2.</span> <span class="nav-text">三元表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环"><span class="nav-number">3.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onclik"><span class="nav-number">4.</span> <span class="nav-text">onclik()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在文本中使用表达式"><span class="nav-number">5.</span> <span class="nav-text">在文本中使用表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在javaScript中使用表达式"><span class="nav-number">6.</span> <span class="nav-text">在javaScript中使用表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#给js变量赋值"><span class="nav-number">6.1.</span> <span class="nav-text">给js变量赋值</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#时间"><span class="nav-number">1.</span> <span class="nav-text">时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三元表达式"><span class="nav-number">2.</span> <span class="nav-text">三元表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环"><span class="nav-number">3.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onclik"><span class="nav-number">4.</span> <span class="nav-text">onclik()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在文本中使用表达式"><span class="nav-number">5.</span> <span class="nav-text">在文本中使用表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在javaScript中使用表达式"><span class="nav-number">6.</span> <span class="nav-text">在javaScript中使用表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#给js变量赋值"><span class="nav-number">6.1.</span> <span class="nav-text">给js变量赋值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在thymeleaf模板中动态添加背景图片"><span class="nav-number">7.</span> <span class="nav-text">在thymeleaf模板中动态添加背景图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在thymeleaf中获取web上下文路径"><span class="nav-number">8.</span> <span class="nav-text">在thymeleaf中获取web上下文路径</span></a></li></ol></div>
             
 
           </div>

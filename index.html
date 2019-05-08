@@ -324,6 +324,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e1a03082.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cacacai">
+      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cacacai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/post/e1a03082.html" class="post-title-link" itemprop="url">Java 笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 14:07:00 / 修改时间：15:55:02" itemprop="dateCreated datePublished" datetime="2019-05-08T14:07:00+08:00">2019-05-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/post/e1a03082.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/e1a03082.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Protein&gt; list = proteinService.list(<span class="keyword">new</span> QueryWrapper&lt;Protein&gt;().select(<span class="string">"ProteinID"</span>,<span class="string">"Sequence"</span>).lambda().likeRight(Protein::getFlagType,<span class="string">"t3se"</span>));</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\workspace\\bastion\\t3.fasta"</span>);</span><br><span class="line">        BufferedWriter  bw =<span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(file));</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="keyword">for</span> (Protein p :</span><br><span class="line">                list) &#123;</span><br><span class="line">            sb.append(<span class="string">"&gt;"</span>+p.getProteinID()+<span class="string">"\n"</span>);</span><br><span class="line">            sb.append(p.getSequence()+<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        bw.write(sb.toString());</span><br></pre></td></tr></table></figure>
+<h1 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">try &#123; // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw</span><br><span class="line"> </span><br><span class="line">			/* 读入TXT文件 */</span><br><span class="line">			String pathname = &quot;D:\\twitter\\13_9_6\\dataset\\en\\input.txt&quot;; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径</span><br><span class="line">			File filename = new File(pathname); // 要读取以上路径的input。txt文件</span><br><span class="line">			InputStreamReader reader = new InputStreamReader(</span><br><span class="line">					new FileInputStream(filename)); // 建立一个输入流对象reader</span><br><span class="line">			BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言</span><br><span class="line">			String line = &quot;&quot;;</span><br><span class="line">			line = br.readLine();</span><br><span class="line">			while (line != null) &#123;</span><br><span class="line">				line = br.readLine(); // 一次读入一行数据</span><br><span class="line">			&#125;</span><br><span class="line"> </span><br><span class="line">			/* 写入Txt文件 */</span><br><span class="line">			File writename = new File(&quot;.\\result\\en\\output.txt&quot;); // 相对路径，如果没有则要建立一个新的output。txt文件</span><br><span class="line">			writename.createNewFile(); // 创建新文件</span><br><span class="line">			BufferedWriter out = new BufferedWriter(new FileWriter(writename));</span><br><span class="line">			out.write(&quot;我会写入文件啦\r\n&quot;); // \r\n即为换行</span><br><span class="line">			out.flush(); // 把缓存区内容压入文件</span><br><span class="line">			out.close(); // 最后记得关闭文件</span><br><span class="line"> </span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="java中split时，需要转义的几个字符"><a href="#java中split时，需要转义的几个字符" class="headerlink" title="java中split时，需要转义的几个字符"></a>java中split时，需要转义的几个字符</h1><p>1、或｜，点 . ，加 + ，乘 * ，在字符串中出现时，如果这个字符串需要被split，则split时候，需要在前面加两个反斜杠。与&amp;，在split时候，不需要转义。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String[] strs1=str1.split(<span class="string">"\\|"</span>);</span><br><span class="line">String[] strs2=str2.split(<span class="string">"\\."</span>);</span><br><span class="line">String[] strs3=str3.split(<span class="string">"&amp;"</span>);</span><br><span class="line">String[] strs4=str4.split(<span class="string">"\\*"</span>);</span><br><span class="line">String[] strs5=str5.split(<span class="string">"\\+"</span>);</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/ebc66479.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -469,7 +654,7 @@
         
           
             <ul>
-<li>gcp密钥无效。要求的格式为：<protocol> <key-blob> <a href="mailto:&#117;&#115;&#101;&#114;&#110;&#97;&#x6d;&#101;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#117;&#115;&#101;&#114;&#110;&#97;&#x6d;&#101;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a> 或 <protocol> <key-blob> google-ssh {“userName”:”<a href="mailto:&#117;&#x73;&#101;&#114;&#x6e;&#97;&#109;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#117;&#x73;&#101;&#114;&#x6e;&#97;&#109;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>“,”expireOn”:”<date>“}<blockquote>
+<li>gcp密钥无效。要求的格式为：<protocol> <key-blob> <a href="mailto:&#x75;&#x73;&#101;&#114;&#110;&#97;&#109;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x75;&#x73;&#101;&#114;&#110;&#97;&#109;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a> 或 <protocol> <key-blob> google-ssh {“userName”:”<a href="mailto:&#117;&#x73;&#x65;&#114;&#x6e;&#97;&#109;&#101;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#117;&#x73;&#x65;&#114;&#x6e;&#97;&#109;&#101;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>“,”expireOn”:”<date>“}<blockquote>
 <p>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAuEZEFPEujMREFDY2+mk8r9R81pHrRtvGkS03H5Srv0E1CWatxyXA7/yHaXJ<strong><strong><strong><em>**</em></strong></strong></strong>TPOthxv1EHMZtfxWTHZsUsGCgMLArM3OA6a71ayelp7J125MYEWWBfiUpkmPkW4j9SfYTGAOpH6gtxs1nQLw== 空格 用户名</p>
 </blockquote>
 </date></key-blob></protocol></key-blob></protocol></li>
@@ -575,12 +760,24 @@
                 
               
 
-              <time title="创建时间：2019-05-05 12:29:00 / 修改时间：14:22:32" itemprop="dateCreated datePublished" datetime="2019-05-05T12:29:00+08:00">2019-05-05</time>
+              <time title="创建时间：2019-05-05 12:29:00" itemprop="dateCreated datePublished" datetime="2019-05-05T12:29:00+08:00">2019-05-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-08 16:32:43" itemprop="dateModified" datetime="2019-05-08T16:32:43+08:00">2019-05-08</time>
               
             
           </span>
@@ -677,6 +874,13 @@
             <h1 id="mysql-VARCHAR的最大长度"><a href="#mysql-VARCHAR的最大长度" class="headerlink" title="mysql VARCHAR的最大长度"></a>mysql VARCHAR的最大长度</h1><p>在5.7使用utf8-gennalec下,英文使用一个字节保存一个字符，中文使用三个字节保存一个字符<br>最长的限制有点奇怪</p>
 <p><img src="/images/pasted-59.png" alt="upload successful"></p>
 <p><img src="/images/pasted-60.png" alt="upload successful"></p>
+<h1 id="Mysql修改时间的年月日，时分秒不变的做法"><a href="#Mysql修改时间的年月日，时分秒不变的做法" class="headerlink" title="Mysql修改时间的年月日，时分秒不变的做法"></a>Mysql修改时间的年月日，时分秒不变的做法</h1><p>比如时间为 “2014-12-11 13:12:01”</p>
+<p>修改为“2014-09-26 13:12::01”</p>
+<p>修改内容为修改yyyy-mm-dd为对应的日期，时间不变。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wt_pps_ads_import_wt <span class="keyword">set</span> game_time = <span class="keyword">ADDTIME</span> (<span class="built_in">date</span>(<span class="string">'2014-09-26'</span>) + <span class="built_in">interval</span> <span class="number">0</span> <span class="keyword">hour</span>,<span class="built_in">time</span>(game_time))</span><br></pre></td></tr></table></figure></p>
+<p>其中game_time 格式为datetime</p>
+<p>若想修改为当前的日期，则为<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wt_pps_ads_import_wt <span class="keyword">set</span> game_time = <span class="keyword">ADDTIME</span> (<span class="keyword">CURDATE</span>() + <span class="built_in">interval</span> <span class="number">0</span> <span class="keyword">hour</span>,<span class="built_in">time</span>(game_time))</span><br></pre></td></tr></table></figure></p>
+<h1 id="mysql数据库删除数据后，数据自增id断点不连续"><a href="#mysql数据库删除数据后，数据自增id断点不连续" class="headerlink" title="mysql数据库删除数据后，数据自增id断点不连续"></a>mysql数据库删除数据后，数据自增id断点不连续</h1><p>mysql数据库表”friends”中id设置主键自增，删除结尾处数据后，重新插值字段id取值不连续，解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table friends  AUTO_INCREMENT=10;（此处10改为自己的断点即可）</span><br></pre></td></tr></table></figure></p>
+<h1 id="在Java中对mysql数据库插入datetime类型数据"><a href="#在Java中对mysql数据库插入datetime类型数据" class="headerlink" title="在Java中对mysql数据库插入datetime类型数据"></a>在Java中对mysql数据库插入datetime类型数据</h1><p><a href="https://blog.csdn.net/sunyloveyun/article/details/53765109" target="_blank" rel="noopener">https://blog.csdn.net/sunyloveyun/article/details/53765109</a></p>
 
           
         
@@ -1211,6 +1415,225 @@
         
       
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/d696e0ee.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cacacai">
+      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cacacai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/post/d696e0ee.html" class="post-title-link" itemprop="url">idea修改maven软件源</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-28 23:28:00" itemprop="dateCreated datePublished" datetime="2019-04-28T23:28:00+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 13:34:55" itemprop="dateModified" datetime="2019-05-07T13:34:55+08:00">2019-05-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/post/d696e0ee.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/d696e0ee.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>有同学问我在idea里运行maven项目时候出现ERROR，同时点开右侧的maven project时候出现红色波浪线，这种情况下，一般是因为国内连接maven仓库时候被墙，或者速度太慢，连接超时，下载不下来。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/d696e0ee.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
 
     
 
@@ -2049,384 +2472,6 @@
         
       
     </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/4afd2e25.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cacacai">
-      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cacacai">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/post/4afd2e25.html" class="post-title-link" itemprop="url">R语言版本LightGBM在Linux上安装</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-20 10:14:00 / 修改时间：15:38:12" itemprop="dateCreated datePublished" datetime="2019-04-20T10:14:00+08:00">2019-04-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/post/4afd2e25.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/4afd2e25.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>参考地址<a href="https://github.com/Microsoft/LightGBM/tree/master/R-package" target="_blank" rel="noopener">https://github.com/Microsoft/LightGBM/tree/master/R-package</a><br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/post/4afd2e25.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/88eb73b1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cacacai">
-      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cacacai">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/post/88eb73b1.html" class="post-title-link" itemprop="url">Linux硬件信息查看shell</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-16 15:10:00 / 修改时间：15:32:10" itemprop="dateCreated datePublished" datetime="2019-04-16T15:10:00+08:00">2019-04-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/post/88eb73b1.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/88eb73b1.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>为了方便查看Linux系统的硬件信息</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/post/88eb73b1.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
 
     
 
