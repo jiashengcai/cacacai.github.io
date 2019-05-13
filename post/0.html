@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="js 使用console计算代码运行时间123console.time(&quot;time&quot;);//你的代码块console.timeEnd(&quot;time&quot;); js防止重复点击或者点击过快方法123&amp;lt;button type=&quot;button&quot; data-val=&quot;0&quot;&amp;gt;00000&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; data-val=&quot;1&quot;&amp;gt;11">
+  <meta name="description" content="记录HTML页面中常用到的js技巧">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="收集js常用方法">
 <meta property="og:url" content="http://yoursite.com/post/0.html">
 <meta property="og:site_name" content="cacacai">
-<meta property="og:description" content="js 使用console计算代码运行时间123console.time(&quot;time&quot;);//你的代码块console.timeEnd(&quot;time&quot;); js防止重复点击或者点击过快方法123&amp;lt;button type=&quot;button&quot; data-val=&quot;0&quot;&amp;gt;00000&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; data-val=&quot;1&quot;&amp;gt;11">
+<meta property="og:description" content="记录HTML页面中常用到的js技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-05T04:49:39.393Z">
+<meta property="og:updated_time" content="2019-05-13T02:21:36.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收集js常用方法">
-<meta name="twitter:description" content="js 使用console计算代码运行时间123console.time(&quot;time&quot;);//你的代码块console.timeEnd(&quot;time&quot;); js防止重复点击或者点击过快方法123&amp;lt;button type=&quot;button&quot; data-val=&quot;0&quot;&amp;gt;00000&amp;lt;/button&amp;gt;&amp;lt;button type=&quot;button&quot; data-val=&quot;1&quot;&amp;gt;11">
+<meta name="twitter:description" content="记录HTML页面中常用到的js技巧">
 
 
 
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-05 12:49:39" itemprop="dateModified" datetime="2019-05-05T12:49:39+08:00">2019-05-05</time>
+                <time title="修改时间：2019-05-13 10:21:36" itemprop="dateModified" datetime="2019-05-13T10:21:36+08:00">2019-05-13</time>
               
             
           </span>
@@ -458,7 +458,7 @@
       
 
       
-        <a id="more"></a>
+        <p>记录HTML页面中常用到的js技巧<br><a id="more"></a></p>
 <h1 id="js-使用console计算代码运行时间"><a href="#js-使用console计算代码运行时间" class="headerlink" title="js 使用console计算代码运行时间"></a>js 使用console计算代码运行时间</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">"time"</span>);</span><br><span class="line"><span class="comment">//你的代码块</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"time"</span>);</span><br></pre></td></tr></table></figure>
 <h1 id="js防止重复点击或者点击过快方法"><a href="#js防止重复点击或者点击过快方法" class="headerlink" title="js防止重复点击或者点击过快方法"></a>js防止重复点击或者点击过快方法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-val</span>=<span class="string">"0"</span>&gt;</span>00000<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-val</span>=<span class="string">"1"</span>&gt;</span>11111<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-val</span>=<span class="string">"2"</span>&gt;</span>22222<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> isClick = <span class="literal">true</span>;</span><br><span class="line">	$(<span class="string">"button"</span>).on(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(isClick) &#123;</span><br><span class="line">			isClick = <span class="literal">false</span>;</span><br><span class="line">			<span class="comment">//事件</span></span><br><span class="line">			<span class="built_in">console</span>.log($(<span class="keyword">this</span>).attr(<span class="string">"data-val"</span>));</span><br><span class="line">			<span class="comment">//定时器</span></span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				isClick = <span class="literal">true</span>;</span><br><span class="line">			&#125;, <span class="number">1000</span>);<span class="comment">//一秒内不能重复点击</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
