@@ -324,6 +324,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/aad4d19a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cacacai">
+      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cacacai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/post/aad4d19a.html" class="post-title-link" itemprop="url">gitpage CDN加速</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-11 14:37:00 / 修改时间：15:48:38" itemprop="dateCreated datePublished" datetime="2019-08-11T14:37:00+08:00">2019-08-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/post/aad4d19a.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/aad4d19a.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用CDN加速gitpage可以加快国内的访问速度，在腾讯云的cdn可以免费用10g流量包/月，理论上还是不错的</p>
+<more>
+
+<h1 id="首先确定自己的域名"><a href="#首先确定自己的域名" class="headerlink" title="首先确定自己的域名"></a>首先确定自己的域名</h1><p><img src="/images/pasted-78.png" alt="upload successful"><br>我的是cacacai.cn，前面没有www之类的前缀</p>
+<h1 id="CDN配置"><a href="#CDN配置" class="headerlink" title="CDN配置"></a>CDN配置</h1><p><img src="/images/pasted-79.png" alt="upload successful"><br>源站设置的ip<br>185.199.110.153<br>185.199.108.153<br>185.199.109.153<br>185.199.111.153<br>这个ip也可以直接ping直接域名得到的ip<br>对于缓存文件也可以适当修改<br><img src="/images/pasted-80.png" alt="upload successful"></p>
+<p>提交后在域名管理中，等待cdn启动，并会有个CNAME域名</p>
+<p><img src="/images/pasted-81.png" alt="upload successful"></p>
+<p>得到CNAME后，这就是国内的缓存，然后去域名解析中添加CNAME记录，到cdn中获得域名</p>
+<p><img src="/images/pasted-82.png" alt="upload successful"></p>
+<p>同时添加了一个境外的访问CNAME记录，把国内和国外的访问区分开。</p>
+<p>验证是否成功<a href="http://tool.chinaz.com/dns/" target="_blank" rel="noopener">http://tool.chinaz.com/dns/</a> 检测域名的dns CNAME记录</p>
+<p><img src="/images/pasted-83.png" alt="upload successful"></p>
+<h1 id="可能的坑"><a href="#可能的坑" class="headerlink" title="可能的坑"></a>可能的坑</h1><h2 id="访问重定向过多"><a href="#访问重定向过多" class="headerlink" title="访问重定向过多"></a>访问重定向过多</h2><p>在开启CDN的时候可能会出现循环重定向的问题，出现这个问题的原因是重定向规则引起的，我的解决办法是进入CDN加速面板中的回源配置，勾选中间源配置，然后再绑定源服务器域名，设置协议跟随即可。</p>
+<p><img src="/images/pasted-84.png" alt="upload successful"></p>
+<p><img src="/images/pasted-85.png" alt="upload successful"><br>没有证书的，直接申请一个免费的</p>
+<h2 id="数据不同步"><a href="#数据不同步" class="headerlink" title="数据不同步"></a>数据不同步</h2><p>另外加速之后国内访问网站显示信息与github pages上面的内容不同步时，可以去cdn页面刷新缓存。 　<br>主要是有缓存时间，可以修改文件刷新缓存的时间</p>
+<h2 id="域名访问出现不存在"><a href="#域名访问出现不存在" class="headerlink" title="域名访问出现不存在"></a>域名访问出现不存在</h2><p>如果需要访问类似<a href="http://www.cacacai.cn地址需要添加CNAME记录" target="_blank" rel="noopener">www.cacacai.cn地址需要添加CNAME记录</a><br><img src="/images/pasted-86.png" alt="upload successful"></p>
+<h2 id="域名出现https显示不安全"><a href="#域名出现https显示不安全" class="headerlink" title="域名出现https显示不安全"></a>域名出现https显示不安全</h2><p>需要确认从github page，cdn控制台，域名解析，中二级域名是否一致，空或者www blog之类的。<br>还有就是等待几分钟再刷新</p>
+</more>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/e1a03082.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2182,207 +2382,6 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/post/4e4fa58c.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/12574c29.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cacacai">
-      <meta itemprop="description" content="夏天的飞鸟飞到我的窗前唱歌又飞去了秋天的黄叶它们没有什么可唱只叹息一声飞落在那里">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cacacai">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/post/12574c29.html" class="post-title-link" itemprop="url">Linux添加环境变量</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-23 15:26:00" itemprop="dateCreated datePublished" datetime="2019-04-23T15:26:00+08:00">2019-04-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-24 15:01:14" itemprop="dateModified" datetime="2019-04-24T15:01:14+08:00">2019-04-24</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/post/12574c29.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/post/12574c29.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果执行某个命令报错command not found 一般是没有把该执行文件添加到系统PATH或者在该执行文件的目录下<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/post/12574c29.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
